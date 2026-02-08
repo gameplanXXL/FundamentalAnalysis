@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "eodhd": {
+      "command": "node",
+      "args": ["dist/mcp-server.js"],
+      "cwd": "/home/cneise/Project/fundamental",
+      "env": {
+        "EOADHD_API_TOKEN": "${EOADHD_API_TOKEN}"
+      }
+    }
+  }
+}

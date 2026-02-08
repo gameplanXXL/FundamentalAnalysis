@@ -36,7 +36,14 @@ fundamental/
 ├── _bmad-output/       # Generierte Artefakte (Planung, Implementierung)
 ├── .claude/            # Claude Code Integration und Commands
 ├── .opencode/          # OpenCode Integration und Commands
+├── src/
+│   ├── mcp-server.ts   # EODHD MCP Server Entry Point
+│   ├── tools/           # MCP Tool-Definitionen (fundamentals, price, news, search)
+│   └── lib/
+│       └── eodhd-client.ts  # EODHD API Client
 ├── .env                # Umgebungsvariablen (NICHT committen!)
+├── .mcp.json           # MCP Server Registrierung für Claude Code
+├── Makefile            # Build/Start/Dev Commands
 ├── CLAUDE.md           # Diese Datei - Projektrichtlinien
 └── README.md           # Projektbeschreibung
 ```
