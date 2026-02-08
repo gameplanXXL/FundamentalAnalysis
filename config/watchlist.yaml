@@ -665,6 +665,58 @@ stocks:
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
 
+  AAPL:
+    name: "Apple Inc."
+    status: "WATCH"
+    added: "2026-02-09"
+    segments: [TECHNOLOGY_DISRUPTION]
+
+    strategic_triggers:
+      - segment: "TECHNOLOGY_DISRUPTION"
+        pattern: "Apple.*AI.*subscription|Apple Intelligence.*monetiz|Apple.*AI.*revenue"
+        action: "REVIEW"
+        label: "AI-Monetarisierung — Game Changer fuer Wachstum"
+      - segment: "TECHNOLOGY_DISRUPTION"
+        pattern: "Apple.*China.*ban|Apple.*tariff|iPhone.*China.*decline"
+        action: "REVIEW"
+        label: "China-Risiko — iPhone-Revenue bedroht"
+
+    price_triggers:
+      - operator: "<"
+        value: 220
+        action: "BUY"
+        label: "Kaufzone erreicht (Forward-KGV ~26, PEG ~1,7)"
+      - operator: ">"
+        value: 310
+        action: "REVIEW"
+        label: "Ueber Analysten-Konsens — Ueberbewertung pruefen"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.30
+        action: "SELL"
+        label: "Op. Margin unter 30%"
+      - metric: "revenue_growth_yoy"
+        source: "highlights"
+        operator: "<"
+        value: 0.05
+        action: "SELL"
+        label: "Revenue-Wachstum unter 5% — Stagnation"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
   MRVL:
     name: "Marvell Technology, Inc."
     status: "BUY"

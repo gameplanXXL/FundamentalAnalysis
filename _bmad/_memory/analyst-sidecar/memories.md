@@ -17,6 +17,7 @@
 - **AVGO** — Broadcom Inc. | BUY | $333 (2026-02-09) | 70% Custom-ASIC-Marktanteil, PEG 0,93, $27 Mrd. FCF bei $0,5 Mrd. CapEx, aber $49 Mrd. Net Debt (VMware)
 - **MRVL** — Marvell Technology | BUY | $80 (2026-02-09) | Forward-KGV 23,6, C-Suite kauft bei $77-78, Celestial AI-Übernahme, ASIC-Challenger (5%→20% bis 2028)
 - **META** — Meta Platforms | WATCH | $661 (2026-02-09) | 82% Bruttomarge, 41% Op. Marge, 24% Wachstum, Forward-KGV 22, PEG 1,19 — Qualität top, aber CapEx verdoppelt sich auf $115-135B
+- **AAPL** — Apple Inc. | WATCH | $278 (2026-02-09) | $123 Mrd. FCF bei $12 Mrd. CapEx (ultra-asset-light), $0 Goodwill, aber PEG 2,53, Forward-KGV 33 — bestes Unternehmen, aber zu teuer
 
 ## Analysis History
 - **2026-02-08: ORCL Investment Decision → WATCH** — 14% Umsatzwachstum und Forward-KGV 17,9 attraktiv, aber $108 Mrd. Schulden, -$13 Mrd. FCF und Insider-Verkäufe sprechen gegen sofortigen Kauf. Margin of Safety fehlt. Report: decision-ORCL-2026-02-08.md
@@ -33,13 +34,15 @@
 - **2026-02-09: MRVL Investment Decision → BUY** — Contrarian-Wette: Forward-KGV 23,6 (günstigste AI-Chip-Aktie), -27% in 12 Monaten, CEO+COO+CFO kaufen bei $77-78. ASIC-Challenger mit 20%-Marktanteil-Ziel bis 2028. Report: decision-MRVL-2026-02-09.md
 - **2026-02-09: Mag 7 + AI-Chip Gesamtvergleich** — 7 Watchlist-Aktien verglichen + Custom-Chip-Bedrohung für NVIDIA analysiert → AVGO und MRVL als Ergänzung. Report: compare-mag7-2026-02-09.md
 - **2026-02-09: META Investment Decision → WATCH** — 82% Bruttomarge, 41% Op. Marge, $46B FCF, Forward-KGV 22, PEG 1,19. Qualität herausragend, aber CapEx-Verdoppelung auf $115-135B crasht 2026 FCF. Schulden in Q4 von $29B auf $59B verdoppelt. Kaufzone: $560-580. Report: decision-META-2026-02-09.md
+- **2026-02-09: AAPL Investment Decision → WATCH** — $123 Mrd. FCF (höchster weltweit), $12 Mrd. CapEx (ultra-asset-light), $0 Goodwill, 47% Bruttomarge. Aber PEG 2,53 (teuerste Mag 7), Forward-KGV 33, nur 5% Upside zum Konsens. Kaufzone: unter $220. Report: decision-AAPL-2026-02-09.md
 
 ## Patterns & Insights
 - Christian schaut sich AI/Cloud-Profiteure an — Vergleich ORCL vs MSFT zeigt Präferenz für Qualitätsunternehmen
 - Schlüsselerkenntnis der Session: Oracle und Microsoft investieren beide massiv in AI-Infrastruktur, aber Microsoft finanziert aus FCF, Oracle aus Schulden — fundamentaler Qualitätsunterschied
 - Christian erwägt aktiv ORCL zu verkaufen und MSFT zu kaufen — Empfehlung: ORCL halten (nicht aufstocken), MSFT bei $401 als Einstieg nutzen
-- Stock Monitor ist aktiv mit Triggern für 10 Aktien (MSFT, AMZN, GOOGL, NVDA, ORCL, PLTR, TSLA, AVGO, MRVL, META)
-- Mag 7 Ranking (Value-Perspektive): NVDA (BUY) > MSFT (BUY) > META (WATCH) > GOOGL (WATCH) > AMZN (WATCH) > ORCL (WATCH) > PLTR (SELL) > TSLA (SELL)
+- Stock Monitor ist aktiv mit Triggern für 11 Aktien (MSFT, AMZN, GOOGL, NVDA, ORCL, PLTR, TSLA, AVGO, MRVL, META, AAPL)
+- Mag 7 Ranking (Value-Perspektive): NVDA (BUY) > MSFT (BUY) > META (WATCH) > GOOGL (WATCH) > AMZN (WATCH) > AAPL (WATCH) > ORCL (WATCH) > PLTR (SELL) > TSLA (SELL)
+- AAPL ist das Gegenteil von META/AMZN: Ultra-asset-light ($12B CapEx), kein AI-CapEx-Boom, aber auch keine AI-Monetarisierung. Bewertungspremium ist das Problem, nicht die Qualität.
 - AI-Chip-Triade Ranking: NVDA (A+, PEG 0,70) > AVGO (A, PEG 0,93) > MRVL (B+, Forward-KGV 23,6 + Insider-Käufe)
 - CapEx-Boom 2026 ist zentrales Thema: AMZN $200B, GOOGL $175-185B, NVDA profitiert als Zulieferer bei nur $6B CapEx — Asset-Light-Vorteil
 - NVDA ist der klare Gewinner des AI-CapEx-Booms: Alle anderen investieren, NVDA liefert die Chips
