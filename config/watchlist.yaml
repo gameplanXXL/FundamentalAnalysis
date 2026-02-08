@@ -1,0 +1,81 @@
+version: 1
+defaults:
+  exchange: "US"
+  check_interval: "daily"
+
+stocks:
+  MSFT:
+    name: "Microsoft Corporation"
+    status: "BUY"
+    added: "2026-02-08"
+
+    price_triggers:
+      - operator: "<"
+        value: 370
+        action: "BUY_MORE"
+        label: "Nachkauf-Zone erreicht"
+      - operator: ">"
+        value: 530
+        action: "REVIEW"
+        label: "Ueberbewertung pruefen (KGV ~35)"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.40
+        action: "SELL"
+        label: "Op. Margin unter 40%"
+      - metric: "fcf"
+        source: "cash_flow"
+        operator: "<"
+        value: 0
+        quarters: 2
+        action: "SELL"
+        label: "FCF negativ fuer 2+ Quartale"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Insider-Verkaeufe"
+
+  ORCL:
+    name: "Oracle Corporation"
+    status: "WATCH"
+    added: "2026-02-08"
+
+    price_triggers:
+      - operator: "<"
+        value: 120
+        action: "BUY"
+        label: "Margin of Safety erreicht"
+
+    fundamental_triggers:
+      - metric: "fcf"
+        source: "cash_flow"
+        operator: ">"
+        value: 0
+        quarters: 2
+        action: "BUY"
+        label: "FCF-Wende positiv"
+      - metric: "net_debt"
+        source: "balance_sheet"
+        operator: ">"
+        value: 100000000000
+        action: "SELL"
+        label: "Nettoverschuldung ueber $100 Mrd."
+      - metric: "revenue_growth_yoy"
+        source: "highlights"
+        operator: "<"
+        value: 0.08
+        action: "SELL"
+        label: "Umsatzwachstum unter 8%"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Insider-Verkaeufe"

@@ -118,3 +118,21 @@ Erstelle und speichere in `{outputFile}`:
 ---
 *Erstellt von Viktor & Rita (SFA) am {date}. Keine Anlageberatung.*
 ```
+
+### Step 7: Watchlist-Trigger vorschlagen
+
+Basierend auf den Bedingungen aus Step 6, schlage passende Trigger fuer `config/watchlist.yaml` vor.
+
+Lies zuerst die aktuelle `{project-root}/config/watchlist.yaml`. Dann generiere YAML-Trigger basierend auf den definierten Bedingungen:
+
+- **Kaufbedingungen** → `price_triggers` mit `action: "BUY"` oder `fundamental_triggers` mit passendem Metrik-Mapping
+- **Verkaufbedingungen** → Trigger mit `action: "SELL"`
+- **Beobachtungsbedingungen** → Trigger mit `action: "REVIEW"` oder `action: "WATCH"`
+
+Verfuegbare Metriken: `operating_margin`, `fcf`, `net_debt`, `revenue_growth_yoy`, `earnings_growth_yoy`, `pe_ratio`, `dividend_yield`, `current_ratio`, `debt_equity`, `insider_net_sells`
+
+Zeige den Vorschlag als YAML-Block und frage:
+"**Soll ich diese Trigger in die Watchlist uebernehmen?** (ja/nein/anpassen)"
+
+Bei "ja": Fuege die Trigger in `config/watchlist.yaml` ein (oder aktualisiere bestehende Eintraege fuer den Ticker).
+Bei "anpassen": Lass den Nutzer die Werte aendern und uebernimm dann.
