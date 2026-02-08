@@ -39,7 +39,12 @@ stocks:
         operator: ">"
         value: 5
         action: "REVIEW"
-        label: "Massive Insider-Verkaeufe"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
 
   ORCL:
     name: "Oracle Corporation"
@@ -78,4 +83,9 @@ stocks:
         operator: ">"
         value: 5
         action: "REVIEW"
-        label: "Massive Insider-Verkaeufe"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"

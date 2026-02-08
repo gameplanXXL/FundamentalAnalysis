@@ -205,29 +205,54 @@ function evaluateFundamentalTriggers(data: StockData, triggers: FundamentalTrigg
   return alerts;
 }
 
+function isCongressMember(title: string): boolean {
+  const lower = title.toLowerCase();
+  return lower.includes("congress") || lower.includes("senator") || lower.includes("representative");
+}
+
+interface TransactionCounts {
+  corporateSells: number;
+  corporateBuys: number;
+  congressSells: number;
+  congressBuys: number;
+}
+
+function countTransactions(transactions: unknown[]): TransactionCounts {
+  const threeMonthsAgo = new Date();
+  threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+
+  const counts: TransactionCounts = { corporateSells: 0, corporateBuys: 0, congressSells: 0, congressBuys: 0 };
+
+  for (const tx of transactions) {
+    const t = tx as Record<string, unknown>;
+    const txDate = new Date(String(t.date ?? t.transactionDate ?? ""));
+    if (txDate < threeMonthsAgo) continue;
+
+    const title = String(t.ownerTitle ?? "");
+    const code = String(t.transactionCode ?? t.transactionType ?? "").toUpperCase();
+    const isSell = code === "S" || code === "SALE";
+    const isBuy = code === "P" || code === "PURCHASE";
+
+    if (isCongressMember(title)) {
+      if (isSell) counts.congressSells++;
+      if (isBuy) counts.congressBuys++;
+    } else {
+      if (isSell) counts.corporateSells++;
+      if (isBuy) counts.corporateBuys++;
+    }
+  }
+
+  return counts;
+}
+
 function evaluateSentimentTriggers(data: StockData, triggers: SentimentTrigger[]): Alert[] {
   const alerts: Alert[] = [];
+  const transactions = data.insiderTransactions ?? [];
+  const counts = countTransactions(transactions);
 
   for (const trigger of triggers) {
     if (trigger.metric === "insider_net_sells") {
-      const transactions = data.insiderTransactions ?? [];
-      const threeMonthsAgo = new Date();
-      threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
-
-      let sells = 0;
-      let buys = 0;
-
-      for (const tx of transactions) {
-        const t = tx as Record<string, unknown>;
-        const txDate = new Date(String(t.date ?? t.transactionDate ?? ""));
-        if (txDate < threeMonthsAgo) continue;
-
-        const type = String(t.transactionCode ?? t.transactionType ?? "").toUpperCase();
-        if (type === "S" || type === "SALE") sells++;
-        if (type === "P" || type === "PURCHASE") buys++;
-      }
-
-      const netSells = sells - buys;
+      const netSells = counts.corporateSells - counts.corporateBuys;
       const fired = compare(netSells, trigger.operator, trigger.value);
 
       alerts.push({
@@ -236,6 +261,21 @@ function evaluateSentimentTriggers(data: StockData, triggers: SentimentTrigger[]
         label: trigger.label,
         action: trigger.action,
         currentValue: netSells,
+        threshold: trigger.value,
+        fired,
+        severity: severityForAction(trigger.action),
+      });
+    }
+
+    if (trigger.metric === "congress_buys") {
+      const fired = compare(counts.congressBuys, trigger.operator, trigger.value);
+
+      alerts.push({
+        ticker: data.ticker,
+        metric: "congress_buys",
+        label: trigger.label,
+        action: trigger.action,
+        currentValue: counts.congressBuys,
         threshold: trigger.value,
         fired,
         severity: severityForAction(trigger.action),

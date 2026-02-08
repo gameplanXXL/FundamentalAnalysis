@@ -15,6 +15,7 @@ const metricEnum = z.enum([
   "current_ratio",
   "debt_equity",
   "insider_net_sells",
+  "congress_buys",
 ]);
 
 const sourceEnum = z.enum([
@@ -42,7 +43,7 @@ export const fundamentalTriggerSchema = z.object({
 });
 
 export const sentimentTriggerSchema = z.object({
-  metric: z.literal("insider_net_sells"),
+  metric: z.enum(["insider_net_sells", "congress_buys"]),
   operator: operatorEnum,
   value: z.number(),
   action: actionEnum,
