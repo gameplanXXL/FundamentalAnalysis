@@ -46,6 +46,130 @@ stocks:
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
 
+  AMZN:
+    name: "Amazon.com, Inc."
+    status: "WATCH"
+    added: "2026-02-09"
+
+    price_triggers:
+      - operator: "<"
+        value: 180
+        action: "BUY"
+        label: "Margin of Safety erreicht (Forward-KGV ~21)"
+      - operator: ">"
+        value: 280
+        action: "REVIEW"
+        label: "Ueberbewertung pruefen"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.10
+        action: "SELL"
+        label: "Op. Margin unter 10%"
+      - metric: "fcf"
+        source: "cash_flow"
+        operator: ">"
+        value: 10000000000
+        quarters: 2
+        action: "BUY"
+        label: "FCF-Wende: 2+ Quartale ueber $10 Mrd."
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
+  GOOGL:
+    name: "Alphabet Inc."
+    status: "WATCH"
+    added: "2026-02-09"
+
+    price_triggers:
+      - operator: "<"
+        value: 280
+        action: "BUY"
+        label: "Kaufzone erreicht (Forward-KGV ~24)"
+      - operator: ">"
+        value: 400
+        action: "REVIEW"
+        label: "Ueberbewertung pruefen"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.25
+        action: "SELL"
+        label: "Op. Margin unter 25%"
+      - metric: "revenue_growth_yoy"
+        source: "highlights"
+        operator: "<"
+        value: 0.10
+        action: "REVIEW"
+        label: "Umsatzwachstum unter 10%"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
+  NVDA:
+    name: "NVIDIA Corporation"
+    status: "BUY"
+    added: "2026-02-09"
+
+    price_triggers:
+      - operator: "<"
+        value: 160
+        action: "BUY_MORE"
+        label: "Nachkauf-Zone erreicht (Forward-KGV ~21)"
+      - operator: ">"
+        value: 300
+        action: "REVIEW"
+        label: "Ueberbewertung pruefen (KGV ~50+)"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.50
+        action: "REVIEW"
+        label: "Op. Margin unter 50% - ASIC-Preisdruck?"
+      - metric: "revenue_growth_yoy"
+        source: "highlights"
+        operator: "<"
+        value: 0.20
+        action: "SELL"
+        label: "Datacenter-Wachstum unter 20%"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
   ORCL:
     name: "Oracle Corporation"
     status: "WATCH"
@@ -77,6 +201,88 @@ stocks:
         value: 0.08
         action: "SELL"
         label: "Umsatzwachstum unter 8%"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
+  PLTR:
+    name: "Palantir Technologies Inc."
+    status: "SELL"
+    added: "2026-02-09"
+
+    price_triggers:
+      - operator: "<"
+        value: 80
+        action: "REVIEW"
+        label: "Neu bewerten bei Forward-KGV ~60"
+      - operator: "<"
+        value: 50
+        action: "BUY"
+        label: "Value-Zone bei Forward-KGV ~46"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.30
+        action: "SELL"
+        label: "Op. Margin unter 30%"
+      - metric: "revenue_growth_yoy"
+        source: "highlights"
+        operator: "<"
+        value: 0.30
+        action: "REVIEW"
+        label: "Wachstum verlangsamt unter 30%"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
+  TSLA:
+    name: "Tesla, Inc."
+    status: "SELL"
+    added: "2026-02-09"
+
+    price_triggers:
+      - operator: "<"
+        value: 200
+        action: "REVIEW"
+        label: "Neu bewerten bei Forward-KGV ~100"
+      - operator: "<"
+        value: 100
+        action: "BUY"
+        label: "Value-Zone wenn Robotaxi-Revenue sichtbar"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.03
+        action: "SELL"
+        label: "Op. Margin unter 3% - Preiskampf eskaliert"
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: ">"
+        value: 0.15
+        action: "REVIEW"
+        label: "Margen-Recovery ueber 15% - Robotaxi/FSD?"
 
     sentiment_triggers:
       - metric: "insider_net_sells"
