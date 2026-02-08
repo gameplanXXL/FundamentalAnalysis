@@ -1,0 +1,42 @@
+code: sfa
+name: "SFA: Stock Fundamental Analysis"
+header: "Dein persönlicher Fundamental-Analyst für langfristige Investment-Entscheidungen"
+subheader: "Agenten- und Workflow-Konfiguration für Aktien-Fundamentalanalyse"
+default_selected: false
+
+# Variables from Core Config inserted:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+default_exchange:
+  prompt: "Welche Börse soll als Standard verwendet werden? (EODHD Format, z.B. US, XETRA, LSE)"
+  default: "US"
+  result: "{value}"
+  single-select:
+    - value: "US"
+      label: "US - NYSE/NASDAQ"
+    - value: "XETRA"
+      label: "XETRA - Deutsche Börse"
+    - value: "LSE"
+      label: "LSE - London Stock Exchange"
+
+analysis_artifacts:
+  prompt: "Wo sollen Analyse-Reports gespeichert werden?"
+  default: "{output_folder}/stock-analysis"
+  result: "{project-root}/{value}"
+
+investor_style:
+  prompt: "Welcher Investment-Stil passt zu dir?"
+  default: "value"
+  result: "{value}"
+  single-select:
+    - value: "value"
+      label: "Value Investing - Unterbewertete Qualitätsunternehmen"
+    - value: "growth"
+      label: "Growth Investing - Wachstumsstarke Unternehmen"
+    - value: "dividend"
+      label: "Dividend Investing - Stabile Dividendenzahler"
+    - value: "balanced"
+      label: "Balanced - Ausgewogener Mix"
