@@ -50,6 +50,15 @@ Fuer jede Aktie in der Watchlist:
    - `get-insider-transactions` — letzte 30 Transaktionen
    - `insider_net_sells` = Anzahl Verkaeufe (S) minus Kaeufe (P) der letzten 3 Monate
 
+4. **Strategic-Trigger:**
+   - Lies die `competitive_map` Section aus der Watchlist
+   - Fuer jede Aktie mit `strategic_triggers`:
+     a. `get-financial-news` fuer den Ticker selbst UND fuer alle `watch_tickers`
+     b. Pruefe News-Titel und -Inhalt gegen die definierten `pattern` (Regex)
+     c. Pruefe auch die globalen `news_patterns` aus dem passenden `competitive_map`-Segment
+     d. Bei Treffer: Alert mit Action und Label anzeigen, plus die ausloesende Nachricht
+   - Zusaetzlich: `web-search` (falls verfuegbar) fuer Segment-uebergreifende Patterns aus `TECHNOLOGY_DISRUPTION`
+
 ### Step 3: Ergebnisse anzeigen
 
 Zeige pro Aktie eine Tabelle:
@@ -58,10 +67,12 @@ Zeige pro Aktie eine Tabelle:
 ## {TICKER} — {Name} [{Status}]
 Aktueller Kurs: ${kurs}
 
-| Status | Trigger | Aktuell | Schwelle | Aktion |
-|--------|---------|---------|----------|--------|
-| 🔴/✅  | {label} | {wert}  | {schwelle}| {aktion}|
+| Status | Typ | Trigger | Aktuell | Schwelle | Aktion |
+|--------|-----|---------|---------|----------|--------|
+| 🔴/✅  | P/F/S/ST | {label} | {wert}  | {schwelle}| {aktion}|
 ```
+
+Typ-Legende: P=Preis, F=Fundamental, S=Sentiment, ST=Strategisch
 
 ### Step 4: Zusammenfassung
 
@@ -71,7 +82,21 @@ Aktueller Kurs: ${kurs}
 - {M} Alert(s) ausgeloest
 - Kritisch: {liste der SELL-Alerts}
 - Warnung: {liste der BUY/BUY_MORE-Alerts}
+- Strategisch: {liste der Strategic-Trigger-Alerts mit Quell-Nachricht}
 - Info: {liste der REVIEW-Alerts}
+```
+
+### Step 4b: Moat-Check
+
+Lies `{project-root}/config/moat-scorecards.yaml`. Fuer jede Aktie mit ausgeloesten Alerts:
+- Zeige den aktuellen Moat Score und Trend
+- Pruefe ob der Alert den Moat Trend bestaetigt oder widerspricht
+- Beispiel: NVDA hat Alert "Custom ASICs bedrohen GPU-Marktanteil" → Moat Trend ist STABLE → Empfehlung: "Moat bisher stabil, aber Bedrohung beobachten"
+
+```
+## Moat-Status der alertierten Aktien
+| Aktie | Moat Score | Grade | Trend | Alert-Kontext |
+|-------|-----------|-------|-------|---------------|
 ```
 
 Falls Alerts ausgeloest wurden, frage:

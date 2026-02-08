@@ -1,13 +1,167 @@
-version: 1
+version: 2
 defaults:
   exchange: "US"
   check_interval: "daily"
+
+# ============================================================
+# COMPETITIVE MAP — Markt-Segmente und Abhaengigkeiten
+# ============================================================
+# Definiert, welche Aktien in welchen Maerkten konkurrieren.
+# Der Stock Monitor nutzt diese Map, um Cross-Stock-Alerts
+# auszuloesen: News bei Ticker A kann Review fuer Ticker B triggern.
+
+competitive_map:
+  AI_CHIPS_GPU:
+    description: "GPU-Compute fuer AI Training und Inferenz"
+    suppliers: [NVDA]
+    customers: [AMZN, GOOGL, MSFT, ORCL]
+    challengers: [AVGO, MRVL]
+    news_patterns:
+      - pattern: "custom ASIC|custom silicon|in-house chip|TPU|Trainium|MTIA"
+        impact: "negative_for_suppliers"
+        action: "REVIEW"
+        label: "Hyperscaler bauen eigene Chips — GPU-Nachfrage pruefen"
+      - pattern: "GPU shortage|GPU demand|datacenter GPU"
+        impact: "positive_for_suppliers"
+        action: "REVIEW"
+        label: "GPU-Nachfrage steigt — Kapazitaet pruefen"
+      - pattern: "export control|chip ban|China sanctions|Huawei"
+        impact: "negative_for_suppliers"
+        action: "REVIEW"
+        label: "Exportbeschraenkungen — Revenue-Impact pruefen"
+
+  AI_CHIPS_ASIC:
+    description: "Custom AI-Chips (ASICs) fuer Hyperscaler"
+    suppliers: [AVGO, MRVL]
+    customers: [GOOGL, AMZN, MSFT]
+    competitors: [NVDA]
+    news_patterns:
+      - pattern: "TPU.*production|TPU.*scale|TPU.*generation|Trainium.*scale"
+        impact: "positive_for_suppliers"
+        action: "REVIEW"
+        label: "ASIC-Skalierung beschleunigt — Auftragsvolumen pruefen"
+      - pattern: "ASIC market share|custom chip market"
+        impact: "mixed"
+        action: "REVIEW"
+        label: "ASIC-Marktanteile verschieben sich"
+
+  CLOUD_INFRASTRUCTURE:
+    description: "Cloud-Plattformen und Hyperscaler-Infrastruktur"
+    players: [AMZN, MSFT, GOOGL, ORCL]
+    chip_suppliers: [NVDA, AVGO, MRVL]
+    news_patterns:
+      - pattern: "cloud market share|AWS.*Azure.*GCP|hyperscaler spending"
+        impact: "mixed"
+        action: "REVIEW"
+        label: "Cloud-Marktanteile verschieben sich"
+      - pattern: "CapEx.*cut|infrastructure.*spending.*reduce|datacenter.*pause"
+        impact: "negative_for_chip_suppliers"
+        action: "REVIEW"
+        label: "CapEx-Kuerzung — Chip-Nachfrage gefaehrdet"
+      - pattern: "CapEx.*increase|infrastructure.*billion|datacenter.*expand"
+        impact: "positive_for_chip_suppliers"
+        action: "REVIEW"
+        label: "CapEx steigt — Chip-Nachfrage waechst"
+
+  ENTERPRISE_AI_SOFTWARE:
+    description: "AI-Plattformen und Enterprise-Software"
+    players: [PLTR, MSFT]
+    competitors_external: ["Snowflake", "Databricks", "ServiceNow"]
+    news_patterns:
+      - pattern: "AI platform.*contract|government.*AI.*deal|defense.*AI"
+        impact: "positive_for_players"
+        action: "REVIEW"
+        label: "Grossauftrag fuer AI-Plattform"
+      - pattern: "AI regulation|AI ban|AI moratorium"
+        impact: "negative_for_players"
+        action: "REVIEW"
+        label: "AI-Regulierung — Geschaeftsmodell pruefen"
+
+  EV_AUTONOMOUS:
+    description: "Elektrofahrzeuge, Robotaxi und autonomes Fahren"
+    players: [TSLA]
+    competitors_external: ["BYD", "Waymo", "Rivian", "VW"]
+    news_patterns:
+      - pattern: "robotaxi.*approv|autonomous.*permit|FSD.*regulatory"
+        impact: "positive_for_players"
+        action: "REVIEW"
+        label: "Robotaxi-Regulierung — Revenue-Potenzial pruefen"
+      - pattern: "EV.*tariff|EV.*subsidy.*cut|EV.*price war"
+        impact: "negative_for_players"
+        action: "REVIEW"
+        label: "EV-Marktbedingungen verschlechtern sich"
+      - pattern: "robotaxi.*delay|FSD.*accident|autonomous.*ban"
+        impact: "negative_for_players"
+        action: "REVIEW"
+        label: "Robotaxi-Rueckschlag"
+
+  SOCIAL_MEDIA_ADVERTISING:
+    description: "Social-Media-Plattformen und digitale Werbung"
+    players: [META, GOOGL]
+    competitors_external: ["TikTok", "Snap", "Pinterest", "X"]
+    news_patterns:
+      - pattern: "ad.*spend.*shift|digital.*ad.*market|social.*media.*regulation"
+        impact: "mixed"
+        action: "REVIEW"
+        label: "Werbemarkt-Verschiebung"
+      - pattern: "TikTok.*ban|TikTok.*divest"
+        impact: "positive_for_players"
+        action: "REVIEW"
+        label: "TikTok-Verbot — Werbe-Budget-Umverteilung"
+      - pattern: "privacy.*regulation|cookie.*ban|tracking.*restrict"
+        impact: "negative_for_players"
+        action: "REVIEW"
+        label: "Datenschutz-Regulierung bedroht Ad-Targeting"
+
+  AI_INFRASTRUCTURE:
+    description: "AI-Infrastruktur-Investitionen (CapEx-Boom)"
+    investors: [META, AMZN, MSFT, GOOGL, ORCL]
+    beneficiaries: [NVDA, AVGO, MRVL]
+    news_patterns:
+      - pattern: "AI.*CapEx.*total|AI.*infrastructure.*spend|datacenter.*investment.*record"
+        impact: "positive_for_beneficiaries"
+        action: "REVIEW"
+        label: "AI-CapEx-Boom beschleunigt"
+      - pattern: "AI.*bubble|AI.*overinvest|AI.*ROI.*disappoint"
+        impact: "negative_for_all"
+        action: "REVIEW"
+        label: "AI-Blase? ROI-Enttaeuschung pruefen"
+
+  TECHNOLOGY_DISRUPTION:
+    description: "Uebergreifende Technologie-Shifts"
+    affected: [NVDA, AVGO, MRVL, MSFT, GOOGL, AMZN, META]
+    news_patterns:
+      - pattern: "quantum computing.*breakthrough|quantum.*supremacy"
+        impact: "long_term_threat"
+        action: "REVIEW"
+        label: "Quantencomputing-Durchbruch — langfristige GPU-Relevanz"
+      - pattern: "optical interconnect|photonic computing|neuromorphic"
+        impact: "mixed"
+        action: "REVIEW"
+        label: "Neue Chip-Architektur — Disruptionsrisiko"
+
+# ============================================================
+# STOCKS — Einzelwerte mit allen Trigger-Typen
+# ============================================================
 
 stocks:
   MSFT:
     name: "Microsoft Corporation"
     status: "BUY"
     added: "2026-02-08"
+    segments: [CLOUD_INFRASTRUCTURE, ENTERPRISE_AI_SOFTWARE]
+
+    strategic_triggers:
+      - segment: "CLOUD_INFRASTRUCTURE"
+        watch_tickers: [AMZN, GOOGL]
+        pattern: "Azure.*market share|Azure.*growth.*slow|AWS.*gains"
+        action: "REVIEW"
+        label: "Cloud-Marktanteile verschieben sich"
+      - segment: "ENTERPRISE_AI_SOFTWARE"
+        watch_tickers: [PLTR]
+        pattern: "Copilot.*adoption|Microsoft.*AI.*revenue"
+        action: "REVIEW"
+        label: "Copilot-Monetarisierung tracken"
 
     price_triggers:
       - operator: "<"
@@ -50,6 +204,19 @@ stocks:
     name: "Amazon.com, Inc."
     status: "WATCH"
     added: "2026-02-09"
+    segments: [CLOUD_INFRASTRUCTURE]
+
+    strategic_triggers:
+      - segment: "CLOUD_INFRASTRUCTURE"
+        watch_tickers: [MSFT, GOOGL]
+        pattern: "AWS.*market share|AWS.*growth.*slow|Azure.*gains.*AWS"
+        action: "REVIEW"
+        label: "AWS-Marktanteile pruefen"
+      - segment: "AI_CHIPS_GPU"
+        watch_tickers: [NVDA]
+        pattern: "Trainium.*scale|Trainium.*performance|Inferentia"
+        action: "REVIEW"
+        label: "Eigene Chips vs. NVIDIA-Abhaengigkeit"
 
     price_triggers:
       - operator: "<"
@@ -92,6 +259,24 @@ stocks:
     name: "Alphabet Inc."
     status: "WATCH"
     added: "2026-02-09"
+    segments: [CLOUD_INFRASTRUCTURE, AI_CHIPS_ASIC, EV_AUTONOMOUS]
+
+    strategic_triggers:
+      - segment: "AI_CHIPS_ASIC"
+        watch_tickers: [AVGO, NVDA]
+        pattern: "TPU.*generation|TPU.*scale|Google.*custom chip|TPU.*million"
+        action: "REVIEW"
+        label: "TPU-Skalierung — Impact auf NVDA und AVGO"
+      - segment: "EV_AUTONOMOUS"
+        watch_tickers: [TSLA]
+        pattern: "Waymo.*expand|Waymo.*city|Waymo.*revenue"
+        action: "REVIEW"
+        label: "Waymo-Expansion — Robotaxi-Wettbewerb"
+      - segment: "CLOUD_INFRASTRUCTURE"
+        watch_tickers: [AMZN, MSFT]
+        pattern: "GCP.*market share|Google Cloud.*growth"
+        action: "REVIEW"
+        label: "GCP-Marktanteile tracken"
 
     price_triggers:
       - operator: "<"
@@ -133,6 +318,23 @@ stocks:
     name: "NVIDIA Corporation"
     status: "BUY"
     added: "2026-02-09"
+    segments: [AI_CHIPS_GPU]
+
+    strategic_triggers:
+      - segment: "AI_CHIPS_GPU"
+        watch_tickers: [AVGO, MRVL, GOOGL, AMZN]
+        pattern: "custom ASIC.*scale|TPU.*replace.*GPU|Trainium.*benchmark|in-house.*chip.*replace"
+        action: "REVIEW"
+        label: "Custom ASICs bedrohen GPU-Marktanteil"
+      - segment: "AI_CHIPS_GPU"
+        watch_tickers: [AMZN, MSFT, GOOGL, ORCL]
+        pattern: "CapEx.*cut|infrastructure.*spending.*reduce|datacenter.*pause"
+        action: "REVIEW"
+        label: "Hyperscaler-CapEx sinkt — GPU-Nachfrage pruefen"
+      - segment: "TECHNOLOGY_DISRUPTION"
+        pattern: "export.*control.*expand|chip.*ban.*extend|NVIDIA.*sanction"
+        action: "REVIEW"
+        label: "Exportbeschraenkungen verschaerft"
 
     price_triggers:
       - operator: "<"
@@ -174,6 +376,19 @@ stocks:
     name: "Oracle Corporation"
     status: "WATCH"
     added: "2026-02-08"
+    segments: [CLOUD_INFRASTRUCTURE]
+
+    strategic_triggers:
+      - segment: "CLOUD_INFRASTRUCTURE"
+        watch_tickers: [AMZN, MSFT, GOOGL]
+        pattern: "OCI.*market share|Oracle Cloud.*growth|Oracle.*datacenter"
+        action: "REVIEW"
+        label: "OCI-Positionierung im Cloud-Markt"
+      - segment: "AI_CHIPS_GPU"
+        watch_tickers: [NVDA]
+        pattern: "Oracle.*NVIDIA.*partnership|OCI.*GPU.*cluster"
+        action: "REVIEW"
+        label: "NVIDIA-Partnerschaft — AI-Infrastruktur-Strategie"
 
     price_triggers:
       - operator: "<"
@@ -218,6 +433,18 @@ stocks:
     name: "Palantir Technologies Inc."
     status: "SELL"
     added: "2026-02-09"
+    segments: [ENTERPRISE_AI_SOFTWARE]
+
+    strategic_triggers:
+      - segment: "ENTERPRISE_AI_SOFTWARE"
+        watch_tickers: [MSFT]
+        pattern: "Palantir.*contract|AIP.*deal|government.*AI.*Palantir"
+        action: "REVIEW"
+        label: "Grossauftrag fuer AIP-Plattform"
+      - segment: "ENTERPRISE_AI_SOFTWARE"
+        pattern: "Snowflake.*AI|Databricks.*government|Microsoft Fabric.*replace"
+        action: "REVIEW"
+        label: "Wettbewerber draengen in Palantirs Markt"
 
     price_triggers:
       - operator: "<"
@@ -255,10 +482,87 @@ stocks:
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
 
+  META:
+    name: "Meta Platforms, Inc."
+    status: "WATCH"
+    added: "2026-02-09"
+    segments: [SOCIAL_MEDIA_ADVERTISING, AI_INFRASTRUCTURE]
+
+    strategic_triggers:
+      - segment: "AI_INFRASTRUCTURE"
+        pattern: "Meta.*CapEx.*cut|Reality Labs.*shut|advertising.*revenue.*decline"
+        action: "REVIEW"
+        label: "CapEx-Kuerzung oder Werbe-Revenue-Rueckgang"
+      - segment: "SOCIAL_MEDIA_ADVERTISING"
+        watch_tickers: [GOOGL, SNAP, PINS]
+        pattern: "ad.*spend.*shift|TikTok.*ban.*reverse|social.*media.*regulation"
+        action: "REVIEW"
+        label: "Werbemarkt-Verschiebung oder Regulierung"
+
+    price_triggers:
+      - operator: "<"
+        value: 580
+        action: "BUY"
+        label: "Kaufzone erreicht (Forward-KGV ~20)"
+      - operator: ">"
+        value: 860
+        action: "REVIEW"
+        label: "Ueber Analysten-Konsens — Ueberbewertung pruefen"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.35
+        action: "SELL"
+        label: "Op. Margin unter 35%"
+      - metric: "fcf"
+        source: "cash_flow"
+        operator: "<"
+        value: 0
+        quarters: 2
+        action: "SELL"
+        label: "FCF negativ fuer 2+ Quartale"
+      - metric: "fcf"
+        source: "cash_flow"
+        operator: ">"
+        value: 20000000000
+        quarters: 2
+        action: "BUY"
+        label: "FCF trotz CapEx-Ramp ueber $20 Mrd."
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
   TSLA:
     name: "Tesla, Inc."
     status: "SELL"
     added: "2026-02-09"
+    segments: [EV_AUTONOMOUS]
+
+    strategic_triggers:
+      - segment: "EV_AUTONOMOUS"
+        pattern: "robotaxi.*approv|Cybercab.*launch|FSD.*regulat|autonomous.*permit.*Tesla"
+        action: "REVIEW"
+        label: "Robotaxi-Genehmigung — Game Changer"
+      - segment: "EV_AUTONOMOUS"
+        watch_tickers: [GOOGL]
+        pattern: "Waymo.*expand|Waymo.*million.*rides|Cruise.*restart"
+        action: "REVIEW"
+        label: "Robotaxi-Wettbewerb intensiviert sich"
+      - segment: "EV_AUTONOMOUS"
+        pattern: "Optimus.*production|Optimus.*deploy|Tesla.*robot.*revenue"
+        action: "REVIEW"
+        label: "Optimus-Monetarisierung beginnt"
 
     price_triggers:
       - operator: "<"
@@ -300,6 +604,24 @@ stocks:
     name: "Broadcom Inc."
     status: "BUY"
     added: "2026-02-09"
+    segments: [AI_CHIPS_ASIC]
+
+    strategic_triggers:
+      - segment: "AI_CHIPS_ASIC"
+        watch_tickers: [GOOGL, AMZN]
+        pattern: "TPU.*scale|TPU.*generation|Google.*ASIC.*order|Trainium.*Broadcom"
+        action: "REVIEW"
+        label: "ASIC-Auftragsvolumen steigt"
+      - segment: "AI_CHIPS_ASIC"
+        watch_tickers: [MRVL]
+        pattern: "Marvell.*ASIC.*market share|custom chip.*competition"
+        action: "REVIEW"
+        label: "ASIC-Wettbewerb mit Marvell"
+      - segment: "AI_CHIPS_GPU"
+        watch_tickers: [NVDA]
+        pattern: "NVIDIA.*custom ASIC|NVIDIA.*enters.*ASIC"
+        action: "REVIEW"
+        label: "NVIDIA steigt in ASIC-Markt ein"
 
     price_triggers:
       - operator: "<"
@@ -347,6 +669,23 @@ stocks:
     name: "Marvell Technology, Inc."
     status: "BUY"
     added: "2026-02-09"
+    segments: [AI_CHIPS_ASIC]
+
+    strategic_triggers:
+      - segment: "AI_CHIPS_ASIC"
+        watch_tickers: [AVGO, GOOGL, AMZN]
+        pattern: "Marvell.*ASIC.*win|Marvell.*custom chip.*deal|Marvell.*hyperscaler"
+        action: "REVIEW"
+        label: "Neuer ASIC-Grossauftrag"
+      - segment: "AI_CHIPS_ASIC"
+        watch_tickers: [AVGO]
+        pattern: "Broadcom.*ASIC.*dominant|ASIC.*market.*consolidat"
+        action: "REVIEW"
+        label: "Broadcom konsolidiert ASIC-Markt"
+      - segment: "TECHNOLOGY_DISRUPTION"
+        pattern: "optical interconnect.*standard|photonic.*datacenter"
+        action: "REVIEW"
+        label: "Optische Interconnects — Celestial-AI-Vorteil"
 
     price_triggers:
       - operator: "<"

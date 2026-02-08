@@ -52,7 +52,31 @@ Prüfe:
 - Negative Trends
 - Branchenrisiken
 
-### Step 4: Synthese
+### Step 4: Moat Scorecard
+
+Bewerte den Wettbewerbsvorteil (Moat) des Unternehmens auf 5 Dimensionen (je 0-10):
+
+| Dimension | Score | Begründung |
+|-----------|-------|------------|
+| **Switching Costs** | /10 | Wie schwer ist es fuer Kunden zu wechseln? (Lock-in, Migration, Oekosystem) |
+| **Network Effects** | /10 | Wird das Produkt besser mit mehr Nutzern? (Plattform, Marketplace, Daten) |
+| **Cost Advantage** | /10 | Kann das Unternehmen guenstiger produzieren? (Skaleneffekte, Technologie) |
+| **Intangible Assets** | /10 | Patente, Marken, regulatorische Lizenzen, Daten-Assets |
+| **Efficient Scale** | /10 | Natuerliches Monopol/Oligopol? Eintrittsbarrieren? |
+| **Moat Score** | /50 | Summe |
+
+**Moat Grade:** A (40+) / B (30-39) / C (20-29) / D (10-19) / F (<10)
+**Moat Trend:** WIDENING (wird breiter) / STABLE / NARROWING (wird schmaler)
+
+Identifiziere ausserdem:
+- **Moat Threats:** Was koennte den Burggraben schmaelern? (Wettbewerber, Technologie, Regulierung)
+- **Moat Catalysts:** Was koennte den Burggraben verbreitern?
+
+Pruefe die `competitive_map` in `{project-root}/config/watchlist.yaml` — gibt es Cross-Stock-Abhaengigkeiten, die den Moat beeinflussen?
+
+Speichere/aktualisiere die Scorecard in `{project-root}/config/moat-scorecards.yaml`.
+
+### Step 5: Synthese
 
 Kombiniere Viktors und Ritas Perspektiven:
 
@@ -62,11 +86,12 @@ Kombiniere Viktors und Ritas Perspektiven:
 | Bewertung | | |
 | Wachstum | | |
 | Bilanz | | |
-| Momentum | | |
+| Moat | | |
+| Strategie | | |
 
-**Abwägung:** Überwiegen die Chancen oder die Risiken?
+**Abwägung:** Überwiegen die Chancen oder die Risiken? Berücksichtige insbesondere den Moat Trend — ein NARROWING Moat bei hoher Bewertung ist ein starkes Verkaufssignal.
 
-### Step 5: Empfehlung
+### Step 6: Empfehlung
 
 Berücksichtige den Investor-Stil `{investor_style}`:
 
@@ -81,7 +106,7 @@ Gib eine klare Empfehlung:
 - **SELL** — Risiken überwiegen, Position reduzieren
 - **WATCH** — Interessant, aber Timing noch nicht ideal
 
-### Step 6: Decision-Report
+### Step 7: Decision-Report
 
 Erstelle und speichere in `{outputFile}`:
 
@@ -104,11 +129,25 @@ Erstelle und speichere in `{outputFile}`:
 ## Rita sagt (Risiken)
 [Identifizierte Risiken und Red Flags]
 
+## Moat Scorecard
+
+| Dimension | Score | Begründung |
+|-----------|-------|------------|
+| Switching Costs | /10 | |
+| Network Effects | /10 | |
+| Cost Advantage | /10 | |
+| Intangible Assets | /10 | |
+| Efficient Scale | /10 | |
+| **Moat Score** | **/50** | **Grade: _ | Trend: _** |
+
+**Threats:** [Was den Moat bedroht]
+**Catalysts:** [Was den Moat staerkt]
+
 ## Synthese
-[Chance-Risiko-Abwägung Tabelle]
+[Chance-Risiko-Abwägung Tabelle inkl. Moat und Strategie]
 
 ## Empfehlung: {BUY/HOLD/SELL/WATCH}
-[Detaillierte Begründung im Kontext des Investor-Stils]
+[Detaillierte Begründung im Kontext des Investor-Stils und Moat-Bewertung]
 
 ## Bedingungen
 - Kaufen wenn: [Bedingung]
@@ -119,9 +158,9 @@ Erstelle und speichere in `{outputFile}`:
 *Erstellt von Viktor & Rita (SFA) am {date}. Keine Anlageberatung.*
 ```
 
-### Step 7: Watchlist-Trigger vorschlagen
+### Step 8: Watchlist-Trigger vorschlagen
 
-Basierend auf den Bedingungen aus Step 6, schlage passende Trigger fuer `config/watchlist.yaml` vor.
+Basierend auf den Bedingungen aus Step 7, schlage passende Trigger fuer `config/watchlist.yaml` vor.
 
 Lies zuerst die aktuelle `{project-root}/config/watchlist.yaml`. Dann generiere YAML-Trigger basierend auf den definierten Bedingungen:
 

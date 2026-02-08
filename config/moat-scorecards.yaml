@@ -1,0 +1,207 @@
+# ============================================================
+# MOAT SCORECARDS — Wettbewerbsvorteile quantifiziert
+# ============================================================
+# Jede Dimension wird von 0-10 bewertet.
+# Moat Score = Summe / 50, Moat Grade = A (40+) / B (30-39) / C (20-29) / D (10-19) / F (<10)
+# Moat Trend: WIDENING (Burggraben wird breiter), STABLE, NARROWING (wird schmaler)
+#
+# Erstellt und aktualisiert im Rahmen des Investment Decision Workflows.
+# Wird vom Stock Monitor referenziert, um Moat-Veraenderungen zu tracken.
+
+version: 1
+last_updated: "2026-02-09"
+
+# ============================================================
+# BEWERTUNGSDIMENSIONEN
+# ============================================================
+# switching_costs:  Wie schwer ist es fuer Kunden zu wechseln? (Lock-in, Migration, Oekosystem)
+# network_effects:  Wird das Produkt besser mit mehr Nutzern? (Plattform, Marketplace, Daten)
+# cost_advantage:   Kann das Unternehmen guenstiger produzieren? (Skaleneffekte, Technologie, Prozesse)
+# intangible_assets: Patente, Marken, regulatorische Lizenzen, Daten-Assets
+# efficient_scale:  Natuerliches Monopol/Oligopol? Begrenzte Marktgroesse verhindert neue Wettbewerber?
+
+scorecards:
+  NVDA:
+    date: "2026-02-09"
+    switching_costs: 9       # CUDA-Oekosystem, Millionen trainierte Entwickler, Software-Stack
+    network_effects: 8       # Groesstes AI-Entwickler-Oekosystem, Frameworks optimiert fuer NVIDIA
+    cost_advantage: 7        # Skaleneffekte bei GPU-Design, aber TSMC-Abhaengigkeit
+    intangible_assets: 9     # 30.000+ Patente, CUDA-Lock-in, Datacenter-Referenzdesigns
+    efficient_scale: 8       # Oligopol mit AVGO/MRVL, Eintrittsbarrieren extrem hoch ($B R&D)
+    moat_score: 41
+    moat_grade: "A"
+    moat_trend: "STABLE"
+    moat_threats:
+      - "Custom ASICs (AVGO/MRVL) koennten Inferenz-Marktanteil nehmen"
+      - "Exportbeschraenkungen schliessen China-Markt teilweise aus"
+    moat_catalysts:
+      - "CUDA-Oekosystem wird mit jeder GPU-Generation wertvoller"
+      - "Blackwell/Rubin-Architektur haelt technologischen Vorsprung"
+    comment: "Staerkster Moat im Halbleitersektor. CUDA ist der Burggraben — nicht die Hardware."
+
+  MSFT:
+    date: "2026-02-09"
+    switching_costs: 9       # Enterprise-Lock-in: Office 365, Azure, Active Directory, Teams
+    network_effects: 7       # LinkedIn, Teams, GitHub — Plattform-Effekte in Enterprise
+    cost_advantage: 6        # Skaleneffekte bei Cloud, aber hohe CapEx
+    intangible_assets: 9     # Windows/Office-Monopol, OpenAI-Partnerschaft, Enterprise-Trust
+    efficient_scale: 8       # Cloud-Oligopol (AWS/Azure/GCP), Enterprise-Software-Duopol
+    moat_score: 39
+    moat_grade: "B"
+    moat_trend: "WIDENING"
+    moat_threats:
+      - "CapEx-Explosion ($83 Mrd.) ohne klaren ROI-Nachweis"
+      - "OpenAI-Abhaengigkeit — eigene Modelle noch nicht wettbewerbsfaehig"
+    moat_catalysts:
+      - "Copilot monetarisiert AI direkt im Enterprise-Stack"
+      - "Azure wächst schneller als AWS — Cloud-Marktanteil steigt"
+    comment: "Breitester Moat aller Tech-Unternehmen. Enterprise-Lock-in ist fast unueberwindbar."
+
+  GOOGL:
+    date: "2026-02-09"
+    switching_costs: 6       # Search hat niedrige Switching Costs, aber Cloud/Workspace steigen
+    network_effects: 9       # YouTube, Search, Android, Google Maps — staerkste Netzwerkeffekte
+    cost_advantage: 8        # Eigene TPUs, eigene Infrastruktur, Daten-Skaleneffekte
+    intangible_assets: 9     # Search-Monopol, Android, YouTube, DeepMind, Waymo
+    efficient_scale: 7       # Search-Monopol, aber Cloud-Markt noch fragmentiert
+    moat_score: 39
+    moat_grade: "B"
+    moat_trend: "STABLE"
+    moat_threats:
+      - "AI-Suche (Perplexity, ChatGPT Search) bedroht Search-Monopol"
+      - "Antitrust-Verfahren koennten Zerschlagung erzwingen"
+    moat_catalysts:
+      - "Eigene TPUs reduzieren Abhaengigkeit von NVIDIA"
+      - "Gemini-Modelle integriert in gesamtes Google-Oekosystem"
+    comment: "Netzwerkeffekte sind der staerkste Moat. Antitrust ist das groesste Risiko."
+
+  AMZN:
+    date: "2026-02-09"
+    switching_costs: 8       # AWS: hohe Migration-Kosten, Retail: Prime-Lock-in
+    network_effects: 8       # Marketplace: mehr Verkaeufer = mehr Kaeufer, AWS-Oekosystem
+    cost_advantage: 9        # Logistik-Netzwerk, AWS-Skaleneffekte, Verhandlungsmacht
+    intangible_assets: 7     # AWS-First-Mover, Prime-Marke, Fulfillment-Netzwerk
+    efficient_scale: 7       # E-Commerce + Cloud — zwei Oligopole
+    moat_score: 39
+    moat_grade: "B"
+    moat_trend: "STABLE"
+    moat_threats:
+      - "$200 Mrd. CapEx drückt FCF — muss sich in Wachstum uebersetzen"
+      - "Temu/Shein im Retail, Azure/GCP in Cloud"
+    moat_catalysts:
+      - "Trainium/Inferentia reduziert Cloud-Kosten vs. NVIDIA"
+      - "AWS-Oekosystem mit Bedrock/SageMaker wird AI-Standard"
+    comment: "Kostenvorteile sind der Kern-Moat. Logistik-Netzwerk ist fast unmoeglich zu replizieren."
+
+  ORCL:
+    date: "2026-02-08"
+    switching_costs: 9       # Datenbank-Lock-in: Migration von Oracle DB ist extrem teuer/riskant
+    network_effects: 3       # Minimal — keine echten Netzwerkeffekte
+    cost_advantage: 4        # Keine Kostenvorteile vs. Cloud-Konkurrenz
+    intangible_assets: 7     # Oracle Database IP, Cerner Healthcare, ERP-Lizenzen
+    efficient_scale: 5       # Datenbank-Oligopol, aber Cloud-Markt stark umkaempft
+    moat_score: 28
+    moat_grade: "C"
+    moat_trend: "NARROWING"
+    moat_threats:
+      - "$108 Mrd. Schulden begrenzen strategische Flexibilitaet"
+      - "PostgreSQL, MySQL, Cloud-native DBs erodieren Datenbank-Monopol"
+      - "Negativer FCF (-$13 Mrd.) — Schulden-finanziertes Wachstum nicht nachhaltig"
+    moat_catalysts:
+      - "OCI-Wachstum +14% — Cloud-Transition laeuft"
+      - "Cerner/Healthcare schafft neuen Datenbank-Lock-in"
+    comment: "Legacy-Datenbank-Lock-in ist noch stark, aber wird durch Cloud-Migration langsam erodiert."
+
+  PLTR:
+    date: "2026-02-09"
+    switching_costs: 8       # Gotham/Foundry/AIP: tief integriert in Kunden-Workflows
+    network_effects: 3       # Minimal — jede Installation ist kundenspezifisch
+    cost_advantage: 2        # Hohe Implementierungskosten, keine Skalenvorteile
+    intangible_assets: 7     # Government-Clearances, 20+ Jahre Intelligence-Expertise, AIP-IP
+    efficient_scale: 5       # Government-AI ist Nische, aber wachsend
+    moat_score: 25
+    moat_grade: "C"
+    moat_trend: "WIDENING"
+    moat_threats:
+      - "Snowflake, Databricks, Microsoft Fabric als Wettbewerber"
+      - "Government-Abhaengigkeit — Budget-Kuerzungen moeglich"
+    moat_catalysts:
+      - "AIP demokratisiert Palantir fuer Commercial-Kunden"
+      - "Government-Clearances sind nicht kopierbar"
+    comment: "Switching Costs und Government-Clearances sind der Moat. AIP koennte ihn deutlich verbreitern."
+
+  TSLA:
+    date: "2026-02-09"
+    switching_costs: 4       # Supercharger-Netzwerk (NACS), aber Auto-Wechsel ist einfach
+    network_effects: 3       # FSD-Daten verbessern sich mit Flotte, aber begrenzt
+    cost_advantage: 4        # Gigafactory-Skaleneffekte, aber BYD ist guenstiger
+    intangible_assets: 6     # Marke, FSD-Daten, Supercharger-Standard, Musk-Faktor (positiv+negativ)
+    efficient_scale: 3       # EV-Markt fragmentiert sich — kein natuerliches Monopol
+    moat_score: 20
+    moat_grade: "C"
+    moat_trend: "NARROWING"
+    moat_threats:
+      - "BYD, Xiaomi, VW — massive Konkurrenz mit besseren Margen"
+      - "Musks politisches Engagement schadet Marke in EU"
+      - "Preiskampf zerstoert Margen (Op. Marge nur 4,7%)"
+    moat_catalysts:
+      - "Robotaxi/FSD koennte neuen regulatorischen Moat schaffen"
+      - "Optimus hat potenziell eigene Moat-Kategorie"
+    comment: "Schmalster Moat aller Watchlist-Aktien. Core-Auto hat keinen verteidigbaren Vorteil mehr."
+
+  AVGO:
+    date: "2026-02-09"
+    switching_costs: 8       # Custom ASICs: 2-3 Jahre Design-Zyklen, tiefe Co-Engineering-Beziehung
+    network_effects: 4       # VMware-Oekosystem hat Netzwerkeffekte, Chips weniger
+    cost_advantage: 7        # Skaleneffekte bei ASIC-Design, 70% Marktanteil = Erfahrungskurve
+    intangible_assets: 8     # 30.000+ Halbleiter-Patente, VMware-IP, Google-TPU-Beziehung
+    efficient_scale: 7       # ASIC-Duopol (AVGO+MRVL), Eintrittsbarrieren hoch ($B Investment)
+    moat_score: 34
+    moat_grade: "B"
+    moat_trend: "WIDENING"
+    moat_threats:
+      - "NVIDIA koennte in Custom-ASIC-Markt einsteigen"
+      - "Hyperscaler koennten eigenes Chip-Design insourcen"
+    moat_catalysts:
+      - "Google TPU-Skalierung auf 7M Einheiten vertieft Partnerschaft"
+      - "VMware + Chips = einzigartiges Infrastruktur-Bundle"
+    comment: "Co-Engineering mit Hyperscalern ist der Kern-Moat. 2-3 Jahre Design-Lock-in pro Chip-Generation."
+
+  MRVL:
+    date: "2026-02-09"
+    switching_costs: 6       # ASIC-Design hat Lock-in, aber kleiner Kundenstamm
+    network_effects: 2       # Minimal
+    cost_advantage: 4        # Kleiner als AVGO — weniger Skaleneffekte
+    intangible_assets: 6     # 2nm-Plattform, Celestial AI (optische Interconnects), Networking-IP
+    efficient_scale: 4       # Noch Challenger mit 5% Marktanteil — muss wachsen
+    moat_score: 22
+    moat_grade: "C"
+    moat_trend: "WIDENING"
+    moat_threats:
+      - "Broadcom-Dominanz (70% vs. 5%) — David gegen Goliath"
+      - "Hyperscaler koennten sich auf einen ASIC-Lieferanten konzentrieren"
+    moat_catalysts:
+      - "Celestial AI (optische Interconnects) = naechster Engpass in AI-Infrastruktur"
+      - "2nm-Plattform bereits in Produktion — technologisch an der Spitze"
+      - "CEO-Kauf bei $77 signalisiert starke Pipeline"
+    comment: "Moat ist im Aufbau. Optische Interconnects und 2nm-Technologie koennten differenzierenden Vorteil schaffen."
+
+  META:
+    date: "2026-02-09"
+    switching_costs: 5       # Social-Media-Wechsel ist einfach, aber Werbekunden-Tools haben Lock-in
+    network_effects: 10      # Staerkste Netzwerkeffekte: 3,3 Mrd. DAUs, Instagram, WhatsApp
+    cost_advantage: 8        # Groesste Social-Advertising-Infrastruktur, AI-optimierte Ad-Targeting
+    intangible_assets: 8     # Facebook/Instagram/WhatsApp-Marken, AI-Modelle (Llama), Oculus-IP
+    efficient_scale: 7       # Social-Media-Oligopol, Werbemarkt-Duopol mit Google
+    moat_score: 38
+    moat_grade: "B"
+    moat_trend: "WIDENING"
+    moat_threats:
+      - "Reality Labs verbrennt $15+ Mrd./Jahr ohne klaren ROI"
+      - "TikTok als Wettbewerber fuer junge Nutzer"
+      - "Regulierung (EU Digital Markets Act, Datenschutz)"
+    moat_catalysts:
+      - "Llama Open-Source-Strategie baut AI-Oekosystem auf"
+      - "Threads waechst als Twitter/X-Alternative"
+      - "WhatsApp-Monetarisierung noch am Anfang"
+    comment: "Netzwerkeffekte sind fast unzerstoerbar. 3,3 Mrd. DAUs sind der ultimative Moat."
