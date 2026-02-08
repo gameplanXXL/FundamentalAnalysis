@@ -26,7 +26,7 @@ function colorForSeverity(severity: string): string {
 }
 
 function statusIcon(fired: boolean): string {
-  return fired ? "🔴" : "✅";
+  return fired ? "🚨" : "⏳";
 }
 
 export function notifyConsole(results: MonitorResult[]): void {
@@ -110,7 +110,7 @@ export function notifyMarkdown(results: MonitorResult[]): string {
       lines.push("|--------|---------|---------|----------|--------|");
 
       for (const alert of result.alerts) {
-        const status = alert.fired ? "🔴 ALERT" : "✅ OK";
+        const status = alert.fired ? "🚨 ALERT" : "⏳ OK";
         const valueStr = formatValue(alert.metric, alert.currentValue);
         const threshStr = formatValue(alert.metric, alert.threshold);
         lines.push(`| ${status} | ${alert.label} | ${valueStr} | ${threshStr} | ${alert.action} |`);
@@ -124,7 +124,7 @@ export function notifyMarkdown(results: MonitorResult[]): string {
   lines.push(
     totalFired > 0
       ? `**⚠️ ${totalFired} Alert(s) ausgeloest — Handlungsbedarf pruefen!**`
-      : "**✅ Keine Alerts ausgeloest.**",
+      : "**Keine Alerts ausgeloest — alle Werte im Rahmen.**",
   );
   lines.push("");
 
