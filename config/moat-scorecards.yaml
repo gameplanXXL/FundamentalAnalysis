@@ -205,3 +205,25 @@ scorecards:
       - "Threads waechst als Twitter/X-Alternative"
       - "WhatsApp-Monetarisierung noch am Anfang"
     comment: "Netzwerkeffekte sind fast unzerstoerbar. 3,3 Mrd. DAUs sind der ultimative Moat."
+
+  AAPL:
+    date: "2026-02-09"
+    switching_costs: 10      # Staerkster Lock-in der Welt: iOS/macOS/iCloud/Apple Watch/AirPods — gesamtes Oekosystem
+    network_effects: 7       # App Store, iMessage, AirDrop — stark in geschlossenem Oekosystem
+    cost_advantage: 8        # Eigene Chips (M-Serie, A-Serie), Verhandlungsmacht bei Zulieferern, $123 Mrd. FCF
+    intangible_assets: 10    # Wertvollste Marke weltweit, $0 Goodwill, Design-IP, Apple Intelligence
+    efficient_scale: 8       # Smartphone-Duopol (iOS/Android), Premium-Segment fast Monopol
+    moat_score: 43
+    moat_grade: "A"
+    moat_trend: "STABLE"
+    moat_threats:
+      - "iPhone-Saettigung — Upgrade-Zyklen werden laenger"
+      - "China-Risiko: Huawei, Xiaomi, regulatorische Eingriffe"
+      - "AI-Monetarisierung unklar — Apple Intelligence noch kein Revenue-Treiber"
+      - "EU Digital Markets Act erzwingt Oeffnung des App Stores"
+    moat_catalysts:
+      - "Apple Intelligence koennte Premium-AI-Subscription ermoeglichen"
+      - "Vision Pro/Spatial Computing — neue Produktkategorie"
+      - "Services-Revenue waechst zweistellig mit hohen Margen"
+      - "Installed Base von 2+ Mrd. Geraeten = ultimativer Distribution Channel"
+    comment: "Staerkster Moat aller Watchlist-Aktien. Oekosystem-Lock-in ist praktisch unknackbar. Problem ist nicht die Qualitaet, sondern der Preis."
