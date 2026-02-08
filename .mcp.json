@@ -5,7 +5,7 @@
       "args": ["dist/mcp-server.js"],
       "cwd": "/home/cneise/Project/fundamental",
       "env": {
-        "EOADHD_API_TOKEN": "${EOADHD_API_TOKEN}"
+        "EODHD_API_TOKEN": "${EODHD_API_TOKEN}"
       }
     }
   }

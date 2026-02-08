@@ -14,5 +14,5 @@ test: build
 	@echo "MCP Server started in background. Use Ctrl+C or kill to stop."
 
 install-mcp:
-	@echo '{"mcpServers":{"eodhd":{"command":"node","args":["dist/mcp-server.js"],"cwd":"'$(CURDIR)'","env":{"EOADHD_API_TOKEN":"$${EOADHD_API_TOKEN}"}}}}' > .mcp.json
+	@echo '{"mcpServers":{"eodhd":{"command":"node","args":["dist/mcp-server.js"],"cwd":"'$(CURDIR)'","env":{"EODHD_API_TOKEN":"$${EODHD_API_TOKEN}"}}}}' > .mcp.json
 	@echo ".mcp.json created successfully"

@@ -4,10 +4,10 @@ import { resolve } from "path";
 config({ path: resolve(process.cwd(), ".env") });
 
 const BASE_URL = "https://eodhd.com/api";
-const API_TOKEN = process.env.EOADHD_API_TOKEN ?? process.env.EODHD_API_KEY ?? "";
+const API_TOKEN = process.env.EODHD_API_TOKEN ?? process.env.EODHD_API_KEY ?? "";
 
 if (!API_TOKEN) {
-  console.error("EODHD API token not found. Set EOADHD_API_TOKEN or EODHD_API_KEY in .env");
+  console.error("EODHD API token not found. Set EODHD_API_TOKEN or EODHD_API_KEY in .env");
 }
 
 interface RequestParams {
