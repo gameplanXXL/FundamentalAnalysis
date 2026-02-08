@@ -24,6 +24,13 @@ modules:
     source: external
     npmPackage: bmad-builder
     repoUrl: https://github.com/bmad-code-org/bmad-builder
+  - name: sfa
+    version: 1.0.0
+    installDate: 2026-02-08T20:00:00.000Z
+    lastUpdated: 2026-02-08T20:00:00.000Z
+    source: local
+    npmPackage: null
+    repoUrl: null
 ides:
   - claude-code
   - opencode
