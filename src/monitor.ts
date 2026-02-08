@@ -48,8 +48,8 @@ async function main(): Promise<void> {
 
   await notify(results);
 
-  // Exit code: 1 if any alerts fired (useful for cron)
-  process.exit(totalFired > 0 ? 1 : 0);
+  // Exit 0 on normal run (even with fired alerts) so cron doesn't report errors
+  process.exit(0);
 }
 
 main().catch((err) => {
