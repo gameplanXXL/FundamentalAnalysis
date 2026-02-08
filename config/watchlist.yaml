@@ -295,3 +295,96 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+
+  AVGO:
+    name: "Broadcom Inc."
+    status: "BUY"
+    added: "2026-02-09"
+
+    price_triggers:
+      - operator: "<"
+        value: 280
+        action: "BUY_MORE"
+        label: "Nachkauf-Zone erreicht (Forward-KGV ~28)"
+      - operator: ">"
+        value: 500
+        action: "REVIEW"
+        label: "Ueberbewertung pruefen (KGV ~100+)"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.25
+        action: "REVIEW"
+        label: "Op. Margin unter 25% - VMware-Integration?"
+      - metric: "revenue_growth_yoy"
+        source: "highlights"
+        operator: "<"
+        value: 0.15
+        action: "SELL"
+        label: "Revenue-Wachstum unter 15% - AI-Boom endet?"
+      - metric: "net_debt"
+        source: "balance_sheet"
+        operator: ">"
+        value: 60000000000
+        action: "SELL"
+        label: "Net Debt ueber $60 Mrd. - Schulden steigen"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 5
+        action: "REVIEW"
+        label: "Massive Corporate-Insider-Verkaeufe"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"
+
+  MRVL:
+    name: "Marvell Technology, Inc."
+    status: "BUY"
+    added: "2026-02-09"
+
+    price_triggers:
+      - operator: "<"
+        value: 65
+        action: "BUY_MORE"
+        label: "Deep Value Zone (Forward-KGV ~19)"
+      - operator: ">"
+        value: 130
+        action: "REVIEW"
+        label: "Ueberbewertung pruefen (Forward-KGV ~38)"
+
+    fundamental_triggers:
+      - metric: "operating_margin"
+        source: "income_statement"
+        operator: "<"
+        value: 0.15
+        action: "REVIEW"
+        label: "Op. Margin unter 15% - Margendruck"
+      - metric: "revenue_growth_yoy"
+        source: "highlights"
+        operator: "<"
+        value: 0.20
+        action: "REVIEW"
+        label: "Revenue-Wachstum unter 20%"
+
+    sentiment_triggers:
+      - metric: "insider_net_sells"
+        operator: ">"
+        value: 3
+        action: "REVIEW"
+        label: "Insider drehen auf Netto-Verkaeufer"
+      - metric: "insider_net_buys"
+        operator: ">="
+        value: 3
+        action: "BUY_MORE"
+        label: "Weiterhin Insider-Kaeufe - Signal bestaetigt"
+      - metric: "congress_buys"
+        operator: ">="
+        value: 3
+        action: "REVIEW"
+        label: "Mehrere Kongress-Mitglieder kaufen"

@@ -1,7 +1,7 @@
 # Viktor — Analyst Memories
 
 ## User Profile
-- Christian interessiert sich für große US-Tech-Werte (Oracle, Microsoft, NVDA, AMZN, GOOGL, PLTR, TSLA)
+- Christian interessiert sich für große US-Tech-Werte (Oracle, Microsoft, NVDA, AMZN, GOOGL, PLTR, TSLA) und AI-Chip-Zulieferer (AVGO, MRVL)
 - Fragt direkt und will keine langen Umwege — "leg los" statt Kontext-Erklärung
 - Investor-Stil: Value
 - Lässt gerne mehrere Aktien gleichzeitig analysieren und auf die Monitor-Liste setzen
@@ -14,6 +14,8 @@
 - **GOOGL** — Alphabet | WATCH | $323 (2026-02-09) | Bestes Qualitätsprofil der Mag 7, aber PEG 2,47 und +68% in 12 Monaten = teuer
 - **PLTR** — Palantir Technologies | SELL | $136 (2026-02-09) | 84% Bruttomarge, +70% Wachstum, aber KGV 216, PEG 3,62, massive Insider-Verkäufe
 - **TSLA** — Tesla, Inc. | SELL | $411 (2026-02-09) | 4,7% Op. Marge, Revenue -3,1%, KGV 384 — Bewertung basiert auf Robotaxi/Optimus-Fantasy
+- **AVGO** — Broadcom Inc. | BUY | $333 (2026-02-09) | 70% Custom-ASIC-Marktanteil, PEG 0,93, $27 Mrd. FCF bei $0,5 Mrd. CapEx, aber $49 Mrd. Net Debt (VMware)
+- **MRVL** — Marvell Technology | BUY | $80 (2026-02-09) | Forward-KGV 23,6, C-Suite kauft bei $77-78, Celestial AI-Übernahme, ASIC-Challenger (5%→20% bis 2028)
 
 ## Analysis History
 - **2026-02-08: ORCL Investment Decision → WATCH** — 14% Umsatzwachstum und Forward-KGV 17,9 attraktiv, aber $108 Mrd. Schulden, -$13 Mrd. FCF und Insider-Verkäufe sprechen gegen sofortigen Kauf. Margin of Safety fehlt. Report: decision-ORCL-2026-02-08.md
@@ -26,12 +28,19 @@
 - **2026-02-09: NVDA Investment Decision → BUY** — Einzigartiges Asset-Light-Profil: 63% Op. Marge, 107% ROE, PEG 0,70, $77 Mrd. FCF bei $6 Mrd. CapEx. Forward-KGV 24 ist Value-Territorium. Report: decision-NVDA-2026-02-09.md
 - **2026-02-09: PLTR Investment Decision → SELL** — 84% Bruttomarge und +70% Wachstum beeindruckend, aber KGV 216, PEG 3,62, EV/Revenue 71. Massive Insider-Verkäufe (CEO, President, CTO). Jefferies-Target $70. Report: decision-PLTR-2026-02-09.md
 - **2026-02-09: TSLA Investment Decision → SELL** — 4,7% Op. Marge, Revenue -3,1% YoY, KGV 384, Forward-KGV 200. Bewertung basiert auf Robotaxi/Optimus — nicht auf Fundamentaldaten. 250x FCF. Report: decision-TSLA-2026-02-09.md
+- **2026-02-09: AVGO Investment Decision → BUY** — 70% Custom-ASIC-Marktanteil, Google-TPU-Partner, PEG 0,93, Forward-KGV 33. $26,9 Mrd. FCF bei $0,5 Mrd. CapEx (ultra-asset-light). VMware-Schulden ($49 Mrd. Net Debt) als Hauptrisiko. Report: decision-AVGO-2026-02-09.md
+- **2026-02-09: MRVL Investment Decision → BUY** — Contrarian-Wette: Forward-KGV 23,6 (günstigste AI-Chip-Aktie), -27% in 12 Monaten, CEO+COO+CFO kaufen bei $77-78. ASIC-Challenger mit 20%-Marktanteil-Ziel bis 2028. Report: decision-MRVL-2026-02-09.md
+- **2026-02-09: Mag 7 + AI-Chip Gesamtvergleich** — 7 Watchlist-Aktien verglichen + Custom-Chip-Bedrohung für NVIDIA analysiert → AVGO und MRVL als Ergänzung. Report: compare-mag7-2026-02-09.md
 
 ## Patterns & Insights
 - Christian schaut sich AI/Cloud-Profiteure an — Vergleich ORCL vs MSFT zeigt Präferenz für Qualitätsunternehmen
 - Schlüsselerkenntnis der Session: Oracle und Microsoft investieren beide massiv in AI-Infrastruktur, aber Microsoft finanziert aus FCF, Oracle aus Schulden — fundamentaler Qualitätsunterschied
 - Christian erwägt aktiv ORCL zu verkaufen und MSFT zu kaufen — Empfehlung: ORCL halten (nicht aufstocken), MSFT bei $401 als Einstieg nutzen
-- Stock Monitor ist aktiv mit Triggern für 7 Aktien (MSFT, AMZN, GOOGL, NVDA, ORCL, PLTR, TSLA)
-- Mag 7 Ranking (Value-Perspektive): NVDA (BUY) > GOOGL (WATCH) > AMZN (WATCH) > PLTR (SELL) > TSLA (SELL)
+- Stock Monitor ist aktiv mit Triggern für 9 Aktien (MSFT, AMZN, GOOGL, NVDA, ORCL, PLTR, TSLA, AVGO, MRVL)
+- Mag 7 Ranking (Value-Perspektive): NVDA (BUY) > MSFT (BUY) > GOOGL (WATCH) > AMZN (WATCH) > ORCL (WATCH) > PLTR (SELL) > TSLA (SELL)
+- AI-Chip-Triade Ranking: NVDA (A+, PEG 0,70) > AVGO (A, PEG 0,93) > MRVL (B+, Forward-KGV 23,6 + Insider-Käufe)
 - CapEx-Boom 2026 ist zentrales Thema: AMZN $200B, GOOGL $175-185B, NVDA profitiert als Zulieferer bei nur $6B CapEx — Asset-Light-Vorteil
 - NVDA ist der klare Gewinner des AI-CapEx-Booms: Alle anderen investieren, NVDA liefert die Chips
+- Custom-ASIC-Bedrohung für NVIDIA: Google TPU (7M Einheiten bis 2028), Amazon Trainium, aber GPUs bleiben für Training dominant
+- AVGO und MRVL sind keine NVDA-Killer, sondern Ergänzung: Custom ASICs für Inferenz, GPUs für Training — beide Modelle koexistieren
+- Insider-Käufe als stärkstes Signal: Bei MRVL kauft gesamtes C-Suite (CEO, COO, CFO) — extrem bullish für Value-Investoren
