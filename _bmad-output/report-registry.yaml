@@ -2,8 +2,8 @@
 # Re-generate: npx tsx src/report-index.ts
 # Do not edit manually.
 
-generated: 2026-02-09T11:57:52.706Z
-report_count: 33
+generated: 2026-02-09T15:03:29.598Z
+report_count: 40
 stocks:
   AAPL:
     - type: decision
@@ -212,15 +212,48 @@ cryptos:
       path: crypto/analysis/analyze-BTC-USD-2026-02-09.md
       summary: Bitcoin befindet sich nach einem dramatischen Kursrueckgang von seinem ATH bei ~$126.198 (Oktober 2025) aktuell
         bei ~$70.500 — ein Minus von **44% ...
+    - type: decision
+      date: 2026-02-09
+      path: crypto/decisions/decision-BTC-USD-2026-02-09.md
+      summary: Bitcoin notiert bei **69.220 USD** — ein Minus von **45% vom ATH** (126.198 USD, Oktober 2025). Trotz des
+        massiven Rueckgangs bleibt Bitcoin das st...
+    - type: tokenomics
+      date: 2026-02-09
+      path: crypto/tokenomics/tokenomics-BTC-USD-2026-02-09.md
   ETH-USD:
     - type: analysis
       date: 2026-02-09
       path: crypto/analysis/analyze-ETH-USD-2026-02-09.md
       summary: "Ethereum befindet sich in einer schweren Korrekturphase: Der Kurs ist vom ATH bei $4.954 (August 2025) um
         **58% auf ~$2.079 gefallen**. Besonders d..."
+    - type: decision
+      date: 2026-02-09
+      path: crypto/decisions/decision-ETH-USD-2026-02-09.md
+      summary: Ethereum notiert bei **2.044 USD** — ein Minus von **59% vom ATH** (4.954 USD, August 2025). ETH zeigt eine
+        deutlich schwaechere Performance als Bi...
+    - type: tokenomics
+      date: 2026-02-09
+      path: crypto/tokenomics/tokenomics-ETH-USD-2026-02-09.md
   SOL-USD:
     - type: analysis
       date: 2026-02-09
       path: crypto/analysis/analyze-SOL-USD-2026-02-09.md
       summary: "Solana befindet sich in einem brutalen Abwaertstrend: Der Kurs ist vom ATH bei 294,33 USD (Datum unbekannt,
         vermutlich Spaetsommer/Herbst 2025) um ..."
+    - type: decision
+      date: 2026-02-09
+      path: crypto/decisions/decision-SOL-USD-2026-02-09.md
+      summary: Solana notiert bei **84,86 USD** — ein Minus von **71% vom ATH** (294,33 USD). SOL ist damit das schwaechste
+        der drei grossen Crypto-Assets (BTC -4...
+    - type: tokenomics
+      date: 2026-02-09
+      path: crypto/tokenomics/tokenomics-SOL-USD-2026-02-09.md
+  _comparisons:
+    - type: comparison
+      date: 2026-02-09
+      path: crypto/comparisons/compare-BTC-ETH-SOL-2026-02-09.md
+      summary: "Crypto-Vergleich: BTC vs ETH vs SOL"
+      tickers:
+        - SOL
+        - BUY
+        - HOLD
