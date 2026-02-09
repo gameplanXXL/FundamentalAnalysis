@@ -12,6 +12,16 @@ installed_path: '{project-root}/_bmad/sfa/workflows/fetch-financials'
 
 ---
 
+## MARKDOWN-FORMATIERUNG IM REPORT
+
+**KRITISCH:** Verwende NIEMALS das `$`-Zeichen (Dollarzeichen) im Fliesstext oder in Bold-Markierungen. Viele Markdown-Renderer (GitHub, Obsidian, etc.) interpretieren `$...$` als LaTeX-Math-Delimiter, was Bold/Italic-Formatierung zerstoert.
+
+- **Falsch:** `Der Kurs von **$142.82** liegt unter dem Fair Value von $277.00`
+- **Richtig:** `Der Kurs von **142.82 USD** liegt unter dem Fair Value von 277.00 USD`
+- **In Tabellenzellen** sind Dollarzeichen erlaubt — dort tritt das Problem nicht auf.
+
+---
+
 ## WORKFLOW SEQUENCE
 
 ### Step 1: Ticker auflösen
