@@ -47,3 +47,4 @@ name,description,module,path
 "fetch-financials","Interner Utility-Workflow zum strukturierten Abruf von Finanzdaten","sfa","_bmad/sfa/workflows/fetch-financials/workflow.md"
 "watchlist-update","Schnelle Statusprüfung aller Watchlist-Aktien","sfa","_bmad/sfa/workflows/watchlist-update/workflow.md"
 "explain-metric","Verständliche Erklärung einer Finanzkennzahl mit Kontext und Beispiel","sfa","_bmad/sfa/workflows/explain-metric/workflow.md"
+"morningstar-research","MorningStar Research-Daten sammeln via Playwright MCP (Premium-Login, Financials, Bewertung, Reports)","sfa","_bmad/sfa/workflows/morningstar-research/workflow.md"
