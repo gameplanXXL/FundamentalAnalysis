@@ -17,12 +17,9 @@ morningstar_exchanges:
   GOOGL: "xnas"
   NVDA: "xnas"
   ORCL: "xnys"
-  PLTR: "xnas"
   META: "xnas"
-  TSLA: "xnas"
   AVGO: "xnas"
   AAPL: "xnas"
-  MRVL: "xnas"
 
 # ============================================================
 # COMPETITIVE MAP — Markt-Segmente und Abhaengigkeiten
@@ -36,7 +33,7 @@ competitive_map:
     description: "GPU-Compute fuer AI Training und Inferenz"
     suppliers: [NVDA]
     customers: [AMZN, GOOGL, MSFT, ORCL]
-    challengers: [AVGO, MRVL]
+    challengers: [AVGO]
     news_patterns:
       - pattern: "custom ASIC|custom silicon|in-house chip|TPU|Trainium|MTIA"
         impact: "negative_for_suppliers"
@@ -53,7 +50,7 @@ competitive_map:
 
   AI_CHIPS_ASIC:
     description: "Custom AI-Chips (ASICs) fuer Hyperscaler"
-    suppliers: [AVGO, MRVL]
+    suppliers: [AVGO]
     customers: [GOOGL, AMZN, MSFT]
     competitors: [NVDA]
     news_patterns:
@@ -69,7 +66,7 @@ competitive_map:
   CLOUD_INFRASTRUCTURE:
     description: "Cloud-Plattformen und Hyperscaler-Infrastruktur"
     players: [AMZN, MSFT, GOOGL, ORCL]
-    chip_suppliers: [NVDA, AVGO, MRVL]
+    chip_suppliers: [NVDA, AVGO]
     news_patterns:
       - pattern: "cloud market share|AWS.*Azure.*GCP|hyperscaler spending"
         impact: "mixed"
@@ -86,7 +83,7 @@ competitive_map:
 
   ENTERPRISE_AI_SOFTWARE:
     description: "AI-Plattformen und Enterprise-Software"
-    players: [PLTR, MSFT]
+    players: [MSFT]
     competitors_external: ["Snowflake", "Databricks", "ServiceNow"]
     news_patterns:
       - pattern: "AI platform.*contract|government.*AI.*deal|defense.*AI"
@@ -97,24 +94,6 @@ competitive_map:
         impact: "negative_for_players"
         action: "REVIEW"
         label: "AI-Regulierung — Geschaeftsmodell pruefen"
-
-  EV_AUTONOMOUS:
-    description: "Elektrofahrzeuge, Robotaxi und autonomes Fahren"
-    players: [TSLA]
-    competitors_external: ["BYD", "Waymo", "Rivian", "VW"]
-    news_patterns:
-      - pattern: "robotaxi.*approv|autonomous.*permit|FSD.*regulatory"
-        impact: "positive_for_players"
-        action: "REVIEW"
-        label: "Robotaxi-Regulierung — Revenue-Potenzial pruefen"
-      - pattern: "EV.*tariff|EV.*subsidy.*cut|EV.*price war"
-        impact: "negative_for_players"
-        action: "REVIEW"
-        label: "EV-Marktbedingungen verschlechtern sich"
-      - pattern: "robotaxi.*delay|FSD.*accident|autonomous.*ban"
-        impact: "negative_for_players"
-        action: "REVIEW"
-        label: "Robotaxi-Rueckschlag"
 
   SOCIAL_MEDIA_ADVERTISING:
     description: "Social-Media-Plattformen und digitale Werbung"
@@ -137,7 +116,7 @@ competitive_map:
   AI_INFRASTRUCTURE:
     description: "AI-Infrastruktur-Investitionen (CapEx-Boom)"
     investors: [META, AMZN, MSFT, GOOGL, ORCL]
-    beneficiaries: [NVDA, AVGO, MRVL]
+    beneficiaries: [NVDA, AVGO]
     news_patterns:
       - pattern: "AI.*CapEx.*total|AI.*infrastructure.*spend|datacenter.*investment.*record"
         impact: "positive_for_beneficiaries"
@@ -150,7 +129,7 @@ competitive_map:
 
   TECHNOLOGY_DISRUPTION:
     description: "Uebergreifende Technologie-Shifts"
-    affected: [NVDA, AVGO, MRVL, MSFT, GOOGL, AMZN, META]
+    affected: [NVDA, AVGO, MSFT, GOOGL, AMZN, META]
     news_patterns:
       - pattern: "quantum computing.*breakthrough|quantum.*supremacy"
         impact: "long_term_threat"
@@ -179,7 +158,6 @@ stocks:
         action: "REVIEW"
         label: "Cloud-Marktanteile verschieben sich"
       - segment: "ENTERPRISE_AI_SOFTWARE"
-        watch_tickers: [PLTR]
         pattern: "Copilot.*adoption|Microsoft.*AI.*revenue"
         action: "REVIEW"
         label: "Copilot-Monetarisierung tracken"
@@ -280,7 +258,7 @@ stocks:
     name: "Alphabet Inc."
     status: "WATCH"
     added: "2026-02-09"
-    segments: [CLOUD_INFRASTRUCTURE, AI_CHIPS_ASIC, EV_AUTONOMOUS]
+    segments: [CLOUD_INFRASTRUCTURE, AI_CHIPS_ASIC]
 
     strategic_triggers:
       - segment: "AI_CHIPS_ASIC"
@@ -288,11 +266,6 @@ stocks:
         pattern: "TPU.*generation|TPU.*scale|Google.*custom chip|TPU.*million"
         action: "REVIEW"
         label: "TPU-Skalierung — Impact auf NVDA und AVGO"
-      - segment: "EV_AUTONOMOUS"
-        watch_tickers: [TSLA]
-        pattern: "Waymo.*expand|Waymo.*city|Waymo.*revenue"
-        action: "REVIEW"
-        label: "Waymo-Expansion — Robotaxi-Wettbewerb"
       - segment: "CLOUD_INFRASTRUCTURE"
         watch_tickers: [AMZN, MSFT]
         pattern: "GCP.*market share|Google Cloud.*growth"
@@ -343,7 +316,7 @@ stocks:
 
     strategic_triggers:
       - segment: "AI_CHIPS_GPU"
-        watch_tickers: [AVGO, MRVL, GOOGL, AMZN]
+        watch_tickers: [AVGO, GOOGL, AMZN]
         pattern: "custom ASIC.*scale|TPU.*replace.*GPU|Trainium.*benchmark|in-house.*chip.*replace"
         action: "REVIEW"
         label: "Custom ASICs bedrohen GPU-Marktanteil"
@@ -450,59 +423,6 @@ stocks:
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
 
-  PLTR:
-    name: "Palantir Technologies Inc."
-    status: "SELL"
-    added: "2026-02-09"
-    segments: [ENTERPRISE_AI_SOFTWARE]
-
-    strategic_triggers:
-      - segment: "ENTERPRISE_AI_SOFTWARE"
-        watch_tickers: [MSFT]
-        pattern: "Palantir.*contract|AIP.*deal|government.*AI.*Palantir"
-        action: "REVIEW"
-        label: "Grossauftrag fuer AIP-Plattform"
-      - segment: "ENTERPRISE_AI_SOFTWARE"
-        pattern: "Snowflake.*AI|Databricks.*government|Microsoft Fabric.*replace"
-        action: "REVIEW"
-        label: "Wettbewerber draengen in Palantirs Markt"
-
-    price_triggers:
-      - operator: "<"
-        value: 80
-        action: "REVIEW"
-        label: "Neu bewerten bei Forward-KGV ~60"
-      - operator: "<"
-        value: 50
-        action: "BUY"
-        label: "Value-Zone bei Forward-KGV ~46"
-
-    fundamental_triggers:
-      - metric: "operating_margin"
-        source: "income_statement"
-        operator: "<"
-        value: 0.30
-        action: "SELL"
-        label: "Op. Margin unter 30%"
-      - metric: "revenue_growth_yoy"
-        source: "highlights"
-        operator: "<"
-        value: 0.30
-        action: "REVIEW"
-        label: "Wachstum verlangsamt unter 30%"
-
-    sentiment_triggers:
-      - metric: "insider_net_sells"
-        operator: ">"
-        value: 5
-        action: "REVIEW"
-        label: "Massive Corporate-Insider-Verkaeufe"
-      - metric: "congress_buys"
-        operator: ">="
-        value: 3
-        action: "REVIEW"
-        label: "Mehrere Kongress-Mitglieder kaufen"
-
   META:
     name: "Meta Platforms, Inc."
     status: "WATCH"
@@ -564,63 +484,6 @@ stocks:
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
 
-  TSLA:
-    name: "Tesla, Inc."
-    status: "SELL"
-    added: "2026-02-09"
-    segments: [EV_AUTONOMOUS]
-
-    strategic_triggers:
-      - segment: "EV_AUTONOMOUS"
-        pattern: "robotaxi.*approv|Cybercab.*launch|FSD.*regulat|autonomous.*permit.*Tesla"
-        action: "REVIEW"
-        label: "Robotaxi-Genehmigung — Game Changer"
-      - segment: "EV_AUTONOMOUS"
-        watch_tickers: [GOOGL]
-        pattern: "Waymo.*expand|Waymo.*million.*rides|Cruise.*restart"
-        action: "REVIEW"
-        label: "Robotaxi-Wettbewerb intensiviert sich"
-      - segment: "EV_AUTONOMOUS"
-        pattern: "Optimus.*production|Optimus.*deploy|Tesla.*robot.*revenue"
-        action: "REVIEW"
-        label: "Optimus-Monetarisierung beginnt"
-
-    price_triggers:
-      - operator: "<"
-        value: 200
-        action: "REVIEW"
-        label: "Neu bewerten bei Forward-KGV ~100"
-      - operator: "<"
-        value: 100
-        action: "BUY"
-        label: "Value-Zone wenn Robotaxi-Revenue sichtbar"
-
-    fundamental_triggers:
-      - metric: "operating_margin"
-        source: "income_statement"
-        operator: "<"
-        value: 0.03
-        action: "SELL"
-        label: "Op. Margin unter 3% - Preiskampf eskaliert"
-      - metric: "operating_margin"
-        source: "income_statement"
-        operator: ">"
-        value: 0.15
-        action: "REVIEW"
-        label: "Margen-Recovery ueber 15% - Robotaxi/FSD?"
-
-    sentiment_triggers:
-      - metric: "insider_net_sells"
-        operator: ">"
-        value: 5
-        action: "REVIEW"
-        label: "Massive Corporate-Insider-Verkaeufe"
-      - metric: "congress_buys"
-        operator: ">="
-        value: 3
-        action: "REVIEW"
-        label: "Mehrere Kongress-Mitglieder kaufen"
-
   AVGO:
     name: "Broadcom Inc."
     status: "BUY"
@@ -633,11 +496,6 @@ stocks:
         pattern: "TPU.*scale|TPU.*generation|Google.*ASIC.*order|Trainium.*Broadcom"
         action: "REVIEW"
         label: "ASIC-Auftragsvolumen steigt"
-      - segment: "AI_CHIPS_ASIC"
-        watch_tickers: [MRVL]
-        pattern: "Marvell.*ASIC.*market share|custom chip.*competition"
-        action: "REVIEW"
-        label: "ASIC-Wettbewerb mit Marvell"
       - segment: "AI_CHIPS_GPU"
         watch_tickers: [NVDA]
         pattern: "NVIDIA.*custom ASIC|NVIDIA.*enters.*ASIC"
@@ -732,69 +590,6 @@ stocks:
         value: 5
         action: "REVIEW"
         label: "Massive Corporate-Insider-Verkaeufe"
-      - metric: "congress_buys"
-        operator: ">="
-        value: 3
-        action: "REVIEW"
-        label: "Mehrere Kongress-Mitglieder kaufen"
-
-  MRVL:
-    name: "Marvell Technology, Inc."
-    status: "BUY"
-    added: "2026-02-09"
-    segments: [AI_CHIPS_ASIC]
-
-    strategic_triggers:
-      - segment: "AI_CHIPS_ASIC"
-        watch_tickers: [AVGO, GOOGL, AMZN]
-        pattern: "Marvell.*ASIC.*win|Marvell.*custom chip.*deal|Marvell.*hyperscaler"
-        action: "REVIEW"
-        label: "Neuer ASIC-Grossauftrag"
-      - segment: "AI_CHIPS_ASIC"
-        watch_tickers: [AVGO]
-        pattern: "Broadcom.*ASIC.*dominant|ASIC.*market.*consolidat"
-        action: "REVIEW"
-        label: "Broadcom konsolidiert ASIC-Markt"
-      - segment: "TECHNOLOGY_DISRUPTION"
-        pattern: "optical interconnect.*standard|photonic.*datacenter"
-        action: "REVIEW"
-        label: "Optische Interconnects — Celestial-AI-Vorteil"
-
-    price_triggers:
-      - operator: "<"
-        value: 65
-        action: "BUY_MORE"
-        label: "Deep Value Zone (Forward-KGV ~19)"
-      - operator: ">"
-        value: 130
-        action: "REVIEW"
-        label: "Ueberbewertung pruefen (Forward-KGV ~38)"
-
-    fundamental_triggers:
-      - metric: "operating_margin"
-        source: "income_statement"
-        operator: "<"
-        value: 0.15
-        action: "REVIEW"
-        label: "Op. Margin unter 15% - Margendruck"
-      - metric: "revenue_growth_yoy"
-        source: "highlights"
-        operator: "<"
-        value: 0.20
-        action: "REVIEW"
-        label: "Revenue-Wachstum unter 20%"
-
-    sentiment_triggers:
-      - metric: "insider_net_sells"
-        operator: ">"
-        value: 3
-        action: "REVIEW"
-        label: "Insider drehen auf Netto-Verkaeufer"
-      - metric: "insider_net_buys"
-        operator: ">="
-        value: 3
-        action: "BUY_MORE"
-        label: "Weiterhin Insider-Kaeufe - Signal bestaetigt"
       - metric: "congress_buys"
         operator: ">="
         value: 3
