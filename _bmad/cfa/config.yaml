@@ -1,0 +1,14 @@
+# CFA Module Configuration
+# Crypto Fundamental Analysis
+# Installed: 2026-02-09
+
+# Core Configuration Values (from BMAD Core)
+user_name: Christian
+communication_language: German
+document_output_language: German
+output_folder: "{project-root}/_bmad-output"
+
+# CFA-Specific Configuration
+default_crypto_exchange: "CC"
+analysis_artifacts: "{project-root}/_bmad-output/crypto-analysis"
+investor_style: "hodl"
