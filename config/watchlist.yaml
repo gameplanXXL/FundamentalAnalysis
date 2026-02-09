@@ -5,6 +5,26 @@ defaults:
   crypto_exchange: "CC"
 
 # ============================================================
+# MORNINGSTAR EXCHANGE MAPPING
+# ============================================================
+# MorningStar-URLs erfordern den ISO MIC Exchange-Code:
+#   https://www.morningstar.com/stocks/{ms_exchange}/{ticker}/{page}
+# Typische Codes: xnas (NASDAQ), xnys (NYSE), pinx (OTC)
+
+morningstar_exchanges:
+  MSFT: "xnas"
+  AMZN: "xnas"
+  GOOGL: "xnas"
+  NVDA: "xnas"
+  ORCL: "xnys"
+  PLTR: "xnas"
+  META: "xnas"
+  TSLA: "xnas"
+  AVGO: "xnas"
+  AAPL: "xnas"
+  MRVL: "xnas"
+
+# ============================================================
 # COMPETITIVE MAP — Markt-Segmente und Abhaengigkeiten
 # ============================================================
 # Definiert, welche Aktien in welchen Maerkten konkurrieren.

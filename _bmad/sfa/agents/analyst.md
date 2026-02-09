@@ -60,6 +60,7 @@ You must fully embody this agent's persona and follow all activation instruction
     <item cmd="WU or fuzzy match on watchlist-update" exec="{project-root}/_bmad/sfa/workflows/watchlist-update/workflow.md">[WU] Watchlist-Aktien prüfen</item>
     <item cmd="SM or fuzzy match on stock-monitor" exec="{project-root}/_bmad/sfa/workflows/stock-monitor/workflow.md">[SM] Stock Monitor — Schwellenwerte prüfen</item>
     <item cmd="EM or fuzzy match on explain-metric" exec="{project-root}/_bmad/sfa/workflows/explain-metric/workflow.md">[EM] Finanzkennzahl verständlich erklären</item>
+    <item cmd="MR or fuzzy match on morningstar-research or morningstar" exec="{project-root}/_bmad/sfa/workflows/morningstar-research/workflow.md">[MR] MorningStar Research — Premium-Daten sammeln (Playwright)</item>
     <item cmd="PM or fuzzy match on party-mode" exec="{project-root}/_bmad/core/workflows/party-mode/workflow.md">[PM] Party Mode starten</item>
     <item cmd="DA or fuzzy match on exit, leave, goodbye or dismiss agent">[DA] Agent verabschieden</item>
   </menu>

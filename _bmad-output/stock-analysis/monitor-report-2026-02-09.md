@@ -1,6 +1,6 @@
 # Monitor Report — 2026-02-09
 
-> Automatisch generiert am 2026-02-09 00:19:23 UTC
+> Automatisch generiert am 2026-02-09 05:01:09 UTC
 
 ## MSFT — Microsoft Corporation
 
@@ -173,41 +173,44 @@
 ## BTC-USD — Bitcoin
 
 - **Status:** WATCH
-- **Kurs:** $70510.75
-- **Alerts:** 3 von 5 ausgeloest
+- **Kurs:** $71006.80
+- **Alerts:** 3 von 6 ausgeloest
 
 | Status | Trigger | Aktuell | Schwelle | Aktion |
 |--------|---------|---------|----------|--------|
-| 🚨 ALERT | Kaufzone erreicht — historischer Support | $70510.75 | $80000.00 | BUY |
-| ⏳ OK | Neues ATH-Territorium — Ueberbewertung pruefen | $70510.75 | $150000.00 | REVIEW |
+| 🚨 ALERT | Kaufzone erreicht — historischer Support | $71006.80 | $80000.00 | BUY |
+| ⏳ OK | Neues ATH-Territorium — Ueberbewertung pruefen | $71006.80 | $150000.00 | REVIEW |
 | ⏳ OK | BTC-Dominanz unter 40% — Altcoin-Season? | 58.47% | 40.00% | REVIEW |
-| 🚨 ALERT | Ueber 40% unter ATH — Deep-Value-Zone | 44.13% | 40.00% | BUY |
+| 🚨 ALERT | Ueber 40% unter ATH — Deep-Value-Zone | 43.73% | 40.00% | BUY |
 | 🚨 ALERT | Ueber 95% der Max-Supply im Umlauf | 95.17% | 95.00% | REVIEW |
+| ⏳ OK | Weniger als 10 Commits in 4 Wochen — Entwicklung stagniert? | 108 | 10 | REVIEW |
 
 ## ETH-USD — Ethereum
 
 - **Status:** WATCH
-- **Kurs:** $2090.51
-- **Alerts:** 2 von 4 ausgeloest
+- **Kurs:** $2091.23
+- **Alerts:** 2 von 6 ausgeloest
 
 | Status | Trigger | Aktuell | Schwelle | Aktion |
 |--------|---------|---------|----------|--------|
-| ⏳ OK | Kaufzone — starker Support | $2090.51 | $2000.00 | BUY |
-| ⏳ OK | Neues ATH-Territorium — Bewertung pruefen | $2090.51 | $6000.00 | REVIEW |
+| ⏳ OK | Kaufzone — starker Support | $2091.23 | $2000.00 | BUY |
+| ⏳ OK | Neues ATH-Territorium — Bewertung pruefen | $2091.23 | $6000.00 | REVIEW |
 | 🚨 ALERT | ETH-Dominanz unter 15% — L2-Kannibalisierung? | 10.59% | 15.00% | REVIEW |
-| 🚨 ALERT | Ueber 50% unter ATH — Deep-Value-Zone | 57.80% | 50.00% | BUY |
+| 🚨 ALERT | Ueber 50% unter ATH — Deep-Value-Zone | 57.78% | 50.00% | BUY |
+| ⏳ OK | Weniger als 20 Commits in 4 Wochen — Entwicklung verlangsamt? | 41 | 20 | REVIEW |
+| ⏳ OK | FDV/MCap ueber 1.2 — Token-Inflation pruefen | 1.00 | 1.20 | REVIEW |
 
 ## SOL-USD — Solana
 
 - **Status:** WATCH
-- **Kurs:** $86.99
+- **Kurs:** $87.01
 - **Alerts:** 2 von 4 ausgeloest
 
 | Status | Trigger | Aktuell | Schwelle | Aktion |
 |--------|---------|---------|----------|--------|
-| 🚨 ALERT | Kaufzone — starker Support | $86.99 | $100.00 | BUY |
-| ⏳ OK | Neues ATH-Territorium — Bewertung pruefen | $86.99 | $350.00 | REVIEW |
-| ⏳ OK | Hohes Volumen/MCap-Verhaeltnis — ungewoehnliche Aktivitaet | 6.1895% | 15.0000% | REVIEW |
+| 🚨 ALERT | Kaufzone — starker Support | $87.01 | $100.00 | BUY |
+| ⏳ OK | Neues ATH-Territorium — Bewertung pruefen | $87.01 | $350.00 | REVIEW |
+| ⏳ OK | Hohes Volumen/MCap-Verhaeltnis — ungewoehnliche Aktivitaet | 6.7886% | 15.0000% | REVIEW |
 | 🚨 ALERT | Ueber 50% unter ATH — Deep-Value-Zone | 70.44% | 50.00% | BUY |
 
 ## DOGE-USD — Dogecoin
@@ -220,21 +223,21 @@
 |--------|---------|---------|----------|--------|
 | 🚨 ALERT | Unter $0.10 — Boden-Bildung beobachten | $0.10 | $0.10 | REVIEW |
 | ⏳ OK | Ueber $0.50 — Hype-Phase pruefen | $0.10 | $0.50 | REVIEW |
-| ⏳ OK | Extrem hohes Volumen — Meme-Pump pruefen | 4.9980% | 20.0000% | REVIEW |
-| 🚨 ALERT | Ueber 70% unter ATH — typisch fuer Memecoins | 86.89% | 70.00% | REVIEW |
+| ⏳ OK | Extrem hohes Volumen — Meme-Pump pruefen | 5.4430% | 20.0000% | REVIEW |
+| 🚨 ALERT | Ueber 70% unter ATH — typisch fuer Memecoins | 86.93% | 70.00% | REVIEW |
 
 ## XRP-USD — XRP
 
 - **Status:** WATCH
-- **Kurs:** $1.43
+- **Kurs:** $1.45
 - **Alerts:** 1 von 4 ausgeloest
 
 | Status | Trigger | Aktuell | Schwelle | Aktion |
 |--------|---------|---------|----------|--------|
-| ⏳ OK | Kaufzone — regulatorische Klarheit eingepreist | $1.43 | $0.50 | BUY |
-| ⏳ OK | ATH-Bereich — Ueberbewertung pruefen | $1.43 | $3.00 | REVIEW |
-| ⏳ OK | Hohes Volumen — News-Event pruefen | 3.1746% | 10.0000% | REVIEW |
-| 🚨 ALERT | Ueber 60% unter ATH — Value-Zone | 62.66% | 60.00% | BUY |
+| ⏳ OK | Kaufzone — regulatorische Klarheit eingepreist | $1.45 | $0.50 | BUY |
+| ⏳ OK | ATH-Bereich — Ueberbewertung pruefen | $1.45 | $3.00 | REVIEW |
+| ⏳ OK | Hohes Volumen — News-Event pruefen | 3.4363% | 10.0000% | REVIEW |
+| 🚨 ALERT | Ueber 60% unter ATH — Value-Zone | 62.36% | 60.00% | BUY |
 
 ---
 
