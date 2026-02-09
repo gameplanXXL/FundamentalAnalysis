@@ -2,16 +2,21 @@
 # Re-generate: npx tsx src/report-index.ts
 # Do not edit manually.
 
-generated: 2026-02-09T11:23:06.477Z
-report_count: 24
+generated: 2026-02-09T11:39:02.938Z
+report_count: 27
 stocks:
   AAPL:
     - type: decision
       date: 2026-02-09
       path: stocks/decisions/decision-AAPL-2026-02-09.md
       recommendation: WATCH
-      summary: Apple ist das wertvollste Unternehmen der Welt ($4,09 Billionen) und generiert $123 Mrd. Free Cashflow bei nur
-        $12 Mrd. CapEx — das asset-leichtest...
+      summary: Apple ist das wertvollste Unternehmen der Welt (4,09 Billionen USD MarketCap) und generiert 123 Mrd. USD Free
+        Cashflow bei nur 12 Mrd. USD CapEx — ...
+    - type: morningstar
+      date: 2026-02-09
+      path: stocks/morningstar/morningstar-AAPL-2026-02-09.md
+      summary: Der aktuelle Kurs von **278.12 USD** liegt **7% ueber dem Fair Value Estimate** von 260.00 USD — Apple notiert
+        damit am oberen Rand der 3-Sterne-Zo...
   AMZN:
     - type: decision
       date: 2026-02-09
@@ -31,6 +36,11 @@ stocks:
       recommendation: BUY
       summary: "Broadcom ist NVIDIAs einziger ernsthafter Challenger im AI-Chip-Markt — allerdings mit einem völlig anderen
         Geschäftsmodell: Custom ASICs statt Sta..."
+    - type: morningstar
+      date: 2026-02-09
+      path: stocks/morningstar/morningstar-AVGO-2026-02-09.md
+      summary: Der aktuelle Kurs von **332.92 USD** liegt **31% unter dem Fair Value Estimate** von 480.00 USD — ein
+        erheblicher Discount. Broadcom notiert zwisch...
   GOOGL:
     - type: decision
       date: 2026-02-09
@@ -162,3 +172,9 @@ cryptos:
       path: crypto/analysis/analyze-ETH-USD-2026-02-09.md
       summary: "Ethereum befindet sich in einer schweren Korrekturphase: Der Kurs ist vom ATH bei $4.954 (August 2025) um
         **58% auf ~$2.079 gefallen**. Besonders d..."
+  SOL-USD:
+    - type: analysis
+      date: 2026-02-09
+      path: crypto/analysis/analyze-SOL-USD-2026-02-09.md
+      summary: "Solana befindet sich in einem brutalen Abwaertstrend: Der Kurs ist vom ATH bei 294,33 USD (Datum unbekannt,
+        vermutlich Spaetsommer/Herbst 2025) um ..."
