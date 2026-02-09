@@ -54,3 +54,4 @@
 - **Stufe 1 implementiert (2026-02-09):** Competitive Map mit 8 Marktsegmenten und Strategic Triggers für alle Watchlist-Aktien in watchlist.yaml v2
 - **Stufe 2 implementiert (2026-02-09):** Moat Scorecards für alle 10 Aktien in config/moat-scorecards.yaml, Investment Decision Workflow um Moat-Step erweitert
 - **Stufe 3 geplant (2026-02-09):** Szenario-basierte Bewertung mit Bull/Base/Bear + gewichtetem Fair Value. Plan in _bmad-output/plans/stufe3-szenario-bewertung.md
+- **2026-02-09: ORCL MorningStar Research** — 4 Sterne, Wide Moat, Fair Value $277 vs. Kurs $143 (48% Discount). Very High Uncertainty wegen ambitioniertem Rechenzentrum-Ausbau. Capital Group kauft massiv (+64/+71%). $92.6B Schulden, negativer FCF, 6 Class Actions im Feb 2026. Report: morningstar-ORCL-2026-02-09.md
