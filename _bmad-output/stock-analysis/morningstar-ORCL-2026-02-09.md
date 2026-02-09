@@ -21,7 +21,7 @@
 
 ### Bewertungs-Einschaetzung
 
-Der aktuelle Kurs von **$142.82** liegt **48% unter dem Fair Value Estimate** von $277.00 — ein bemerkenswerter Discount. Oracle notiert knapp ueber dem 5-Star-Price von $138.50, was nach MorningStar-Methodik den maximalen Kaufbereich fuer risikobewusste Investoren darstellt.
+Der aktuelle Kurs von **142.82 USD** liegt **48% unter dem Fair Value Estimate** von 277.00 USD — ein bemerkenswerter Discount. Oracle notiert knapp ueber dem 5-Star-Price von 138.50 USD, was nach MorningStar-Methodik den maximalen Kaufbereich fuer risikobewusste Investoren darstellt.
 
 **Margin of Safety:** ~48% — aussergewoehnlich hoch. Selbst unter Beruecksichtigung der "Very High"-Unsicherheit bietet der aktuelle Kurs einen signifikanten Sicherheitspuffer.
 
@@ -80,7 +80,7 @@ Der aktuelle Kurs von **$142.82** liegt **48% unter dem Fair Value Estimate** vo
 | Op. Margin | 33.6% | 30.7% | 30.9% | 25.7% | 39.3% | 38.5% |
 | Gross Margin | 72.2% | 70.8% | 71.2% | 69.8% | 80.6% | 80.0% |
 
-**Trend:** Revenue wachst kontinuierlich (CAGR ~10% ueber 4 Jahre). Bruttomargen liegen stabil bei 70-72%, allerdings unter den Pre-Cerner-Niveaus von 80%. Die Cerner-Uebernahme (2022) drueckt die Margen temporaer. EPS-Wachstum ist stark: von $3.41 (2020) auf $6.90 (TTM).
+**Trend:** Revenue wachst kontinuierlich (CAGR ~10% ueber 4 Jahre). Bruttomargen liegen stabil bei 70-72%, allerdings unter den Pre-Cerner-Niveaus von 80%. Die Cerner-Uebernahme (2022) drueckt die Margen temporaer. EPS-Wachstum ist stark: von 3.41 USD (2020) auf 6.90 USD (TTM).
 
 ### Balance Sheet (USD Millionen)
 
@@ -93,7 +93,7 @@ Der aktuelle Kurs von **$142.82** liegt **48% unter dem Fair Value Estimate** vo
 | Cash & Equivalents | 10,574 | 10,454 | 9,765 | 8,503 | 30,098 |
 | Current Ratio | 0.91 | 0.72 | 0.91 | 1.62 | 2.30 |
 
-**Kritisch:** Die Verschuldung ist massiv gestiegen — von $72 Mrd. (2021) auf $92.6 Mrd. (Nov 2024). Das Eigenkapital betraegt nur $21 Mrd. bei $147 Mrd. Verbindlichkeiten (D/E 7.04). Die Current Ratio von 0.91 liegt unter 1.0, was kurzfristige Liquiditaetsrisiken signalisiert. Die Bilanz ist Oracles groesste Schwachstelle.
+**Kritisch:** Die Verschuldung ist massiv gestiegen — von 72 Mrd. USD (2021) auf 92.6 Mrd. USD (Nov 2024). Das Eigenkapital betraegt nur 21 Mrd. USD bei 147 Mrd. USD Verbindlichkeiten (D/E 7.04). Die Current Ratio von 0.91 liegt unter 1.0, was kurzfristige Liquiditaetsrisiken signalisiert. Die Bilanz ist Oracles groesste Schwachstelle.
 
 ### Cash Flow (USD Millionen)
 
@@ -107,7 +107,7 @@ Der aktuelle Kurs von **$142.82** liegt **48% unter dem Fair Value Estimate** vo
 
 *FCF = Operating CF + Investing CF (grobe Naeherung, da CapEx-Details nicht separat ausgewiesen)
 
-**Alarmierend:** Der TTM Investing CF von -$31.6 Mrd. spiegelt Oracles massiven Rechenzentrum-Ausbau wider. Der operative Cashflow von $22.3 Mrd. reicht bei weitem nicht aus, die Investitionen zu decken. Oracle finanziert die Differenz ueber neue Schulden (Financing CF +$17.4 Mrd.).
+**Alarmierend:** Der TTM Investing CF von -31.6 Mrd. USD spiegelt Oracles massiven Rechenzentrum-Ausbau wider. Der operative Cashflow von 22.3 Mrd. USD reicht bei weitem nicht aus, die Investitionen zu decken. Oracle finanziert die Differenz ueber neue Schulden (Financing CF +17.4 Mrd. USD).
 
 ---
 
@@ -143,7 +143,7 @@ Der aktuelle Kurs von **$142.82** liegt **48% unter dem Fair Value Estimate** vo
 
 *2022: Erhoehter Payout wegen niedrigem Gewinn (Cerner-Uebernahme-Effekte)
 
-**Trend:** Oracle hat die Dividende kontinuierlich erhoeht (von $0.60 auf $1.60/Aktie). Der Payout Ratio liegt stabil bei ~35%. **Kritisch:** Die Aktienrueckkaeufe (Buyback Yield) sind dramatisch eingebrochen — von 16.81% (2018) auf nur 0.03% (2024). Oracle verwendet das Geld jetzt fuer den Rechenzentrum-Ausbau statt fuer Aktienrueckkaeufe.
+**Trend:** Oracle hat die Dividende kontinuierlich erhoeht (von 0.60 auf 1.60 USD/Aktie). Der Payout Ratio liegt stabil bei ~35%. **Kritisch:** Die Aktienrueckkaeufe (Buyback Yield) sind dramatisch eingebrochen — von 16.81% (2018) auf nur 0.03% (2024). Oracle verwendet das Geld jetzt fuer den Rechenzentrum-Ausbau statt fuer Aktienrueckkaeufe.
 
 ---
 
@@ -251,8 +251,8 @@ Oracle praesentiert sich als **klassisches Value-Investment mit erhoehthem Risik
 - **EV/EBITDA und P/E unter den 5-Jahres-Durchschnitten** — historisch guenstig
 
 **Negativ:**
-- **$92.6 Mrd. Schulden** bei nur $21 Mrd. Eigenkapital — extremes Leverage
-- **Negativer Free Cash Flow (TTM)** durch $31.6 Mrd. Investitionen
+- **92.6 Mrd. USD Schulden** bei nur 21 Mrd. USD Eigenkapital — extremes Leverage
+- **Negativer Free Cash Flow (TTM)** durch 31.6 Mrd. USD Investitionen
 - **"Very High" Uncertainty** — der Rechenzentrum-Ausbau kann spektakulaer gelingen oder scheitern
 - **6 Securities Fraud Class Actions** in einem Monat — ungewoehnliche Haeufung
 - **Buyback-Programm praktisch eingestellt** (0.03% Yield vs. frueher 16%)
@@ -260,11 +260,11 @@ Oracle praesentiert sich als **klassisches Value-Investment mit erhoehthem Risik
 
 ### Empfehlung im Value-Kontext
 
-MorningStar sieht erhebliches Aufwaertspotenzial ($277 Fair Value vs. $143 Kurs). Der **Wide Moat** und die **4-Sterne-Bewertung** sind starke Argumente. Allerdings widerspricht die extreme Verschuldung dem klassischen Value-Ansatz nach Buffett/Graham.
+MorningStar sieht erhebliches Aufwaertspotenzial (277 USD Fair Value vs. 143 USD Kurs). Der **Wide Moat** und die **4-Sterne-Bewertung** sind starke Argumente. Allerdings widerspricht die extreme Verschuldung dem klassischen Value-Ansatz nach Buffett/Graham.
 
 **Fuer den konservativen Value-Investor:** Die Bilanzrisiken und die "Very High"-Unsicherheit machen ORCL zu einer Position, die man **beobachten, aber nicht uebergewichten** sollte. Die Capital-Group-Kaeufe sind ein ermutigendes Signal, dass professionelle Investoren den Discount fuer gerechtfertigt halten.
 
-**Konsistenz mit vorheriger Analyse:** Unsere eigene Investment Decision vom 2026-02-08 (WATCH bei $143) deckt sich mit der MorningStar-Einschaetzung — Oracle bietet Value, aber die Ausfuehrungsrisiken des Rechenzentrum-Ausbaus erfordern Geduld und eine kleinere Positionsgroesse.
+**Konsistenz mit vorheriger Analyse:** Unsere eigene Investment Decision vom 2026-02-08 (WATCH bei 143 USD) deckt sich mit der MorningStar-Einschaetzung — Oracle bietet Value, aber die Ausfuehrungsrisiken des Rechenzentrum-Ausbaus erfordern Geduld und eine kleinere Positionsgroesse.
 
 ---
 *Generiert von Viktor (SFA-Modul) via MorningStar Research Workflow*
