@@ -7,7 +7,7 @@
 Vollstaendige Fundamentalanalyse eines Crypto-Assets.
 
 **Agent:** Satoshi
-**Output:** `crypto-analysis/analyze-{ticker}-{date}.md`
+**Output:** `crypto/analysis/analyze-{ticker}-{date}.md`
 
 **Was wird analysiert:**
 - Markt-Positionierung (MarketCap, Dominance, Volumen)
@@ -25,7 +25,7 @@ Vollstaendige Fundamentalanalyse eines Crypto-Assets.
 Kombinierte BUY/HOLD/SELL-Empfehlung von Satoshi und Cassandra.
 
 **Agents:** Satoshi + Cassandra
-**Output:** `crypto-analysis/decision-{ticker}-{date}.md`
+**Output:** `crypto/decisions/decision-{ticker}-{date}.md`
 
 **Entscheidungs-Faktoren:**
 - Tokenomics (25%)
@@ -44,7 +44,7 @@ Kombinierte BUY/HOLD/SELL-Empfehlung von Satoshi und Cassandra.
 Vergleich von 2-5 Crypto-Assets anhand von Marktdaten.
 
 **Agent:** Satoshi
-**Output:** `crypto-analysis/compare-{tickers}-{date}.md`
+**Output:** `crypto/comparisons/compare-{tickers}-{date}.md`
 
 **Vergleichs-Dimensionen:**
 - Kurs, MarketCap, Dominance
@@ -65,7 +65,7 @@ Vergleich von 2-5 Crypto-Assets anhand von Marktdaten.
 Globale Crypto-Markt-Uebersicht mit Phase-Bestimmung.
 
 **Agent:** Satoshi
-**Output:** `crypto-analysis/market-overview-{date}.md`
+**Output:** `crypto/market/market-overview-{date}.md`
 
 **Markt-Phasen:**
 - Bull, Accumulation, Bear, Euphoria
@@ -81,7 +81,7 @@ Globale Crypto-Markt-Uebersicht mit Phase-Bestimmung.
 Tokenomics Deep-Dive fuer ein einzelnes Asset.
 
 **Agent:** Satoshi
-**Output:** `crypto-analysis/tokenomics-{ticker}-{date}.md`
+**Output:** `crypto/tokenomics/tokenomics-{ticker}-{date}.md`
 
 **Analyse-Punkte:**
 - Supply-Mechanik (Halving, Burn, Staking)

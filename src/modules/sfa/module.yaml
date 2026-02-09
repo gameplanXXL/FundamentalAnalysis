@@ -24,7 +24,7 @@ default_exchange:
 
 analysis_artifacts:
   prompt: "Wo sollen Analyse-Reports gespeichert werden?"
-  default: "{output_folder}/stock-analysis"
+  default: "{output_folder}/stocks"
   result: "{project-root}/{value}"
 
 investor_style:

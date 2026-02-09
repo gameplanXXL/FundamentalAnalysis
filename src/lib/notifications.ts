@@ -127,7 +127,7 @@ function formatValue(metric: string, value: number): string {
 
 export function notifyMarkdown(results: MonitorResult[]): string {
   const date = new Date().toISOString().slice(0, 10);
-  const outputDir = resolve(process.cwd(), "_bmad-output", "stock-analysis");
+  const outputDir = resolve(process.cwd(), "_bmad-output", "stocks", "monitor");
   mkdirSync(outputDir, { recursive: true });
 
   const lines: string[] = [];

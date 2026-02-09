@@ -20,7 +20,7 @@ default_crypto_exchange:
 
 analysis_artifacts:
   prompt: "Wo sollen Crypto-Analyse-Reports gespeichert werden?"
-  default: "{output_folder}/crypto-analysis"
+  default: "{output_folder}/crypto"
   result: "{project-root}/{value}"
 
 investor_style:

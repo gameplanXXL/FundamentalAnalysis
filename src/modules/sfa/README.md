@@ -81,7 +81,7 @@ The module supports these configuration options (set during installation):
 | Variable | Beschreibung | Default |
 |----------|--------------|---------|
 | `default_exchange` | Standard-Börse (US, XETRA, LSE) | US |
-| `analysis_artifacts` | Speicherort für Reports | `{output_folder}/stock-analysis` |
+| `analysis_artifacts` | Speicherort für Reports | `{output_folder}/stocks` |
 | `investor_style` | Investment-Stil (value, growth, dividend, balanced) | value |
 
 ---

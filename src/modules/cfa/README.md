@@ -76,7 +76,7 @@ bmad install cfa
 | Variable | Beschreibung | Default |
 |----------|--------------|---------|
 | `default_crypto_exchange` | Standard-Exchange (CC) | CC |
-| `analysis_artifacts` | Speicherort fuer Reports | `{output_folder}/crypto-analysis` |
+| `analysis_artifacts` | Speicherort fuer Reports | `{output_folder}/crypto` |
 | `investor_style` | Investment-Stil (hodl, swing, research, balanced) | hodl |
 
 ---
