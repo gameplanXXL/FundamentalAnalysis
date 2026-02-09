@@ -7,6 +7,13 @@
       "env": {
         "EODHD_API_TOKEN": "${EODHD_API_TOKEN}"
       }
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      }
     }
   }
 }
