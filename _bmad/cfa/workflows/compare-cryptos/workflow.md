@@ -35,6 +35,15 @@ Bitte gib 2-5 Ticker an (z.B. BTC-USD, ETH-USD, SOL-USD)."
 
 **Warte auf Eingabe.** Validiere alle Ticker.
 
+### Step 1b: Vorhandene Reports pruefen
+
+Lies `{project-root}/_bmad-output/report-registry.yaml`. Suche unter `cryptos._comparisons` und fuer jeden einzelnen Ticker unter `cryptos.{TICKER}` nach vorhandenen Reports.
+
+- **Falls vorhanden:** Zeige eine kurze Uebersicht der vorhandenen Comparison-Reports und individuellen Reports (Analysis, Decision, Tokenomics) fuer die genannten Assets. Nutze bestehende Erkenntnisse als Kontext fuer den Vergleich.
+- **Falls nicht vorhanden oder Registry fehlt:** Normal fortfahren, kein Fehler.
+
+**Wichtig:** IMMER frische Marktdaten via EODHD holen — vorhandene Reports ersetzen keine aktuellen Daten, sie liefern nur Kontext.
+
 ### Step 2: Daten holen
 
 Fuer jedes Asset:
@@ -67,3 +76,11 @@ Fuer jede Vergleichs-Dimension:
 ### Step 5: Ranking und Report
 
 Erstelle ein Ranking basierend auf dem Investor-Stil `{investor_style}` und speichere den Report.
+
+### Step 6: Report-Registry aktualisieren
+
+Fuehre folgenden Befehl aus, um die Report-Registry zu aktualisieren:
+
+`npx tsx src/report-index.ts`
+
+Dies stellt sicher, dass der soeben erstellte Report fuer zukuenftige Workflows auffindbar ist.

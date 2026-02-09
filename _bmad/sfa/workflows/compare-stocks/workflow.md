@@ -33,6 +33,15 @@ Bitte gib 2-5 Ticker an (z.B. ORCL MSFT SAP). Börse: `{default_exchange}`"
 
 **Warte auf Eingabe.** Validiere alle Ticker mit `search-stock`.
 
+### Step 1b: Vorhandene Reports pruefen
+
+Lies `{project-root}/_bmad-output/report-registry.yaml`. Suche unter `stocks._comparisons` und fuer jeden einzelnen Ticker unter `stocks.{TICKER}` nach vorhandenen Reports.
+
+- **Falls vorhanden:** Zeige eine kurze Uebersicht der vorhandenen Comparison-Reports und individuellen Reports (Decision, Morningstar etc.) fuer die genannten Ticker. Nutze bestehende Erkenntnisse als Kontext fuer den Vergleich.
+- **Falls nicht vorhanden oder Registry fehlt:** Normal fortfahren, kein Fehler.
+
+**Wichtig:** IMMER frische Marktdaten via EODHD holen — vorhandene Reports ersetzen keine aktuellen Daten, sie liefern nur Kontext.
+
 ### Step 2: Daten holen
 
 Für **jeden Ticker** abrufen:
@@ -98,3 +107,11 @@ Ordne die Unternehmen nach Attraktivität (Investor-Stil `{investor_style}` ber�
 ---
 *Erstellt von Viktor (SFA) am {date}. Keine Anlageberatung.*
 ```
+
+### Step 6: Report-Registry aktualisieren
+
+Fuehre folgenden Befehl aus, um die Report-Registry zu aktualisieren:
+
+`npx tsx src/report-index.ts`
+
+Dies stellt sicher, dass der soeben erstellte Report fuer zukuenftige Workflows auffindbar ist.

@@ -34,6 +34,10 @@ Lies die Datei `{project-root}/config/watchlist.yaml` und zeige eine Uebersicht:
 Watchlist geladen: {Anzahl} Aktien
 {Fuer jede Aktie: Ticker — Name [Status] (X Trigger konfiguriert)}"
 
+### Step 1b: Report-Registry laden (optional)
+
+Falls `{project-root}/_bmad-output/report-registry.yaml` existiert, lies sie ein. Bei ausgeloesten Alerts kann die Registry verwendet werden, um auf vorhandene Decision- oder Risk-Reports zu verweisen. Falls nicht vorhanden: Normal fortfahren.
+
 ### Step 2: Daten abrufen und Trigger pruefen
 
 Fuer jede Aktie in der Watchlist:
@@ -115,6 +119,14 @@ Falls Alerts ausgeloest wurden, frage:
 ### Step 5: Report speichern
 
 Erstelle und speichere den vollstaendigen Report in `{outputFile}` im gleichen Format wie die Console-Ausgabe, aber als Markdown.
+
+### Step 6: Report-Registry aktualisieren
+
+Fuehre folgenden Befehl aus, um die Report-Registry zu aktualisieren:
+
+`npx tsx src/report-index.ts`
+
+Dies stellt sicher, dass der soeben erstellte Report fuer zukuenftige Workflows auffindbar ist.
 
 ---
 

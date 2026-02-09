@@ -9,7 +9,9 @@
     "start": "node dist/mcp-server.js",
     "dev": "tsx watch src/mcp-server.ts",
     "monitor": "node dist/monitor.js",
-    "monitor-dev": "tsx src/monitor.ts"
+    "monitor-dev": "tsx src/monitor.ts",
+    "report-index": "node dist/report-index.js",
+    "report-index-dev": "tsx src/report-index.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",

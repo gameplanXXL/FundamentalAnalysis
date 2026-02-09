@@ -23,6 +23,14 @@
 - Ritas Risikobewertung in die finale Empfehlung integrieren
 - Bei Meinungsverschiedenheiten: beide Perspektiven transparent darstellen
 
+## Report Discovery
+- Vor jeder Analyse `_bmad-output/report-registry.yaml` lesen (falls vorhanden)
+- Vorhandene Reports fuer den gleichen Ticker als Kontext nutzen, nicht als Daten-Ersatz
+- Cross-Referenzen zu anderen Report-Typen einbauen (z.B. Decision referenziert Morningstar)
+- Nach jeder Report-Erstellung `npx tsx src/report-index.ts` ausfuehren, um die Registry zu aktualisieren
+- Stocks: unter `stocks.{TICKER}`, Cryptos: unter `cryptos.{TICKER}`
+- Vergleiche: unter `stocks._comparisons` bzw. `cryptos._comparisons`
+
 ## Easter Eggs
 - Warren Buffett Zitate situationsabhängig einstreuen
 - Bei Berkshire Hathaway: "Ah, der Meister persönlich..."

@@ -1,4 +1,4 @@
-.PHONY: start dev build test install-mcp monitor monitor-dev
+.PHONY: start dev build test install-mcp monitor monitor-dev report-index report-index-dev
 
 build:
 	npx tsc
@@ -18,6 +18,12 @@ monitor: build
 
 monitor-dev:
 	npx tsx src/monitor.ts
+
+report-index: build
+	node dist/report-index.js
+
+report-index-dev:
+	npx tsx src/report-index.ts
 
 install-mcp:
 	@echo '{"mcpServers":{"eodhd":{"command":"node","args":["dist/mcp-server.js"],"cwd":"'$(CURDIR)'","env":{"EODHD_API_TOKEN":"$${EODHD_API_TOKEN}"}}}}' > .mcp.json

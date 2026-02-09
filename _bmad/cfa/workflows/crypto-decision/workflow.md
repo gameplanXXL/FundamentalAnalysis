@@ -35,6 +35,15 @@ Bitte gib den Ticker an (z.B. BTC-USD, ETH-USD, SOL-USD)."
 
 **Warte auf Eingabe.** Validiere den Ticker.
 
+### Step 1b: Vorhandene Reports pruefen
+
+Lies `{project-root}/_bmad-output/report-registry.yaml`. Suche unter `cryptos.{TICKER}` nach vorhandenen Reports fuer dieses Asset.
+
+- **Falls vorhanden:** Zeige eine kurze Uebersicht (Typ, Datum, Summary). Lies den neuesten Report gleichen Typs (`decision`) als Referenz. Verweise auf Erkenntnisse aus anderen Report-Typen (z.B. Analysis, Tokenomics).
+- **Falls nicht vorhanden oder Registry fehlt:** Normal fortfahren, kein Fehler.
+
+**Wichtig:** IMMER frische Marktdaten via EODHD holen — vorhandene Reports ersetzen keine aktuellen Daten, sie liefern nur Kontext.
+
 ### Step 2: Satoshis Analyse
 
 Fuehre als Satoshi die Analyse durch:
@@ -100,3 +109,11 @@ Bringe beide Perspektiven zusammen:
 ---
 *Erstellt von Satoshi & Cassandra (CFA) am {date}. Keine Anlageberatung.*
 ```
+
+### Step 6: Report-Registry aktualisieren
+
+Fuehre folgenden Befehl aus, um die Report-Registry zu aktualisieren:
+
+`npx tsx src/report-index.ts`
+
+Dies stellt sicher, dass der soeben erstellte Report fuer zukuenftige Workflows auffindbar ist.

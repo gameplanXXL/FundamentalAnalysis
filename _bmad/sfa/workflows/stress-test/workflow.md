@@ -33,6 +33,15 @@ Ticker angeben. Optional: Spezifisches Szenario (z.B. 'Revenue -30%', 'Zinsen +3
 
 **Warte auf Eingabe.**
 
+### Step 1b: Vorhandene Reports pruefen
+
+Lies `{project-root}/_bmad-output/report-registry.yaml`. Suche unter `stocks.{TICKER}` nach vorhandenen Reports fuer diesen Ticker.
+
+- **Falls vorhanden:** Zeige eine kurze Uebersicht (Typ, Datum, Empfehlung/Summary). Lies den neuesten Report gleichen Typs (`stress-test`) als Referenz. Verweise auf Erkenntnisse aus anderen Report-Typen (z.B. Risk-Assessment, Decision).
+- **Falls nicht vorhanden oder Registry fehlt:** Normal fortfahren, kein Fehler.
+
+**Wichtig:** IMMER frische Marktdaten via EODHD holen — vorhandene Reports ersetzen keine aktuellen Daten, sie liefern nur Kontext.
+
 ### Step 2: Baseline erfassen
 
 1. **`get-fundamentals`** sections: highlights, balance-sheet-quarterly, income-statement-quarterly, cash-flow-quarterly
@@ -117,3 +126,11 @@ Speichere in `{outputFile}`:
 ---
 *Erstellt von Rita (SFA) am {date}. Keine Anlageberatung.*
 ```
+
+### Step 7: Report-Registry aktualisieren
+
+Fuehre folgenden Befehl aus, um die Report-Registry zu aktualisieren:
+
+`npx tsx src/report-index.ts`
+
+Dies stellt sicher, dass der soeben erstellte Report fuer zukuenftige Workflows auffindbar ist.

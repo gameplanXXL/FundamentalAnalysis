@@ -72,6 +72,15 @@ Setze Variablen:
 - `{ms_exchange}` — z.B. `xnas`
 - `{ms_base_url}` — aus Environment `RESEARCH_MORNINGSTAR_URL`
 
+### Step 1b: Vorhandene Reports pruefen
+
+Lies `{project-root}/_bmad-output/report-registry.yaml`. Suche unter `stocks.{TICKER}` nach vorhandenen Reports fuer diesen Ticker.
+
+- **Falls vorhanden:** Zeige eine kurze Uebersicht (Typ, Datum, Empfehlung/Summary). Lies den neuesten Report gleichen Typs (`morningstar`) als Referenz — pruefe ob sich Fair Value oder Ratings geaendert haben. Verweise auf Erkenntnisse aus anderen Report-Typen (z.B. Decision, Analysis).
+- **Falls nicht vorhanden oder Registry fehlt:** Normal fortfahren, kein Fehler.
+
+**Wichtig:** IMMER frische Daten von MorningStar holen — vorhandene Reports ersetzen keine aktuellen Daten, sie liefern nur Vergleichskontext.
+
 ### Step 2: MorningStar Login
 
 **Ziel:** Einloggen bei MorningStar um auf Premium-Daten zuzugreifen.
@@ -476,3 +485,11 @@ Erstelle den konsolidierten MorningStar-Research-Report und speichere ihn in `{o
 ```
 
 Zeige dem Nutzer den Report und informiere ueber den Speicherort.
+
+### Step 13: Report-Registry aktualisieren
+
+Fuehre folgenden Befehl aus, um die Report-Registry zu aktualisieren:
+
+`npx tsx src/report-index.ts`
+
+Dies stellt sicher, dass der soeben erstellte Report fuer zukuenftige Workflows auffindbar ist.
