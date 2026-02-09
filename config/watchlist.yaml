@@ -2,6 +2,7 @@ version: 2
 defaults:
   exchange: "US"
   check_interval: "daily"
+  crypto_exchange: "CC"
 
 # ============================================================
 # COMPETITIVE MAP — Markt-Segmente und Abhaengigkeiten
@@ -779,3 +780,145 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+
+# ============================================================
+# CRYPTOS — Crypto-Assets mit Preis- und Crypto-Triggern
+# ============================================================
+# Daten via EODHD CC-Exchange (z.B. BTC-USD.CC)
+# Metriken: MarketCap, Supply, Dominance, ATH/ATL, Sentiment
+
+cryptos:
+  BTC-USD:
+    name: "Bitcoin"
+    status: "WATCH"
+    added: "2026-02-09"
+    category: "L1"
+    price_triggers:
+      - operator: "<"
+        value: 80000
+        action: "BUY"
+        label: "Kaufzone erreicht — historischer Support"
+      - operator: ">"
+        value: 150000
+        action: "REVIEW"
+        label: "Neues ATH-Territorium — Ueberbewertung pruefen"
+    crypto_triggers:
+      - metric: "market_cap_dominance"
+        operator: "<"
+        value: 40
+        action: "REVIEW"
+        label: "BTC-Dominanz unter 40% — Altcoin-Season?"
+      - metric: "distance_from_ath_pct"
+        operator: ">"
+        value: 40
+        action: "BUY"
+        label: "Ueber 40% unter ATH — Deep-Value-Zone"
+      - metric: "circulating_supply_ratio"
+        operator: ">"
+        value: 0.95
+        action: "REVIEW"
+        label: "Ueber 95% der Max-Supply im Umlauf"
+
+  ETH-USD:
+    name: "Ethereum"
+    status: "WATCH"
+    added: "2026-02-09"
+    category: "L1"
+    price_triggers:
+      - operator: "<"
+        value: 2000
+        action: "BUY"
+        label: "Kaufzone — starker Support"
+      - operator: ">"
+        value: 6000
+        action: "REVIEW"
+        label: "Neues ATH-Territorium — Bewertung pruefen"
+    crypto_triggers:
+      - metric: "market_cap_dominance"
+        operator: "<"
+        value: 15
+        action: "REVIEW"
+        label: "ETH-Dominanz unter 15% — L2-Kannibalisierung?"
+      - metric: "distance_from_ath_pct"
+        operator: ">"
+        value: 50
+        action: "BUY"
+        label: "Ueber 50% unter ATH — Deep-Value-Zone"
+
+  SOL-USD:
+    name: "Solana"
+    status: "WATCH"
+    added: "2026-02-09"
+    category: "L1"
+    price_triggers:
+      - operator: "<"
+        value: 100
+        action: "BUY"
+        label: "Kaufzone — starker Support"
+      - operator: ">"
+        value: 350
+        action: "REVIEW"
+        label: "Neues ATH-Territorium — Bewertung pruefen"
+    crypto_triggers:
+      - metric: "volume_market_cap_ratio"
+        operator: ">"
+        value: 0.15
+        action: "REVIEW"
+        label: "Hohes Volumen/MCap-Verhaeltnis — ungewoehnliche Aktivitaet"
+      - metric: "distance_from_ath_pct"
+        operator: ">"
+        value: 50
+        action: "BUY"
+        label: "Ueber 50% unter ATH — Deep-Value-Zone"
+
+  DOGE-USD:
+    name: "Dogecoin"
+    status: "WATCH"
+    added: "2026-02-09"
+    category: "Meme"
+    price_triggers:
+      - operator: "<"
+        value: 0.10
+        action: "REVIEW"
+        label: "Unter $0.10 — Boden-Bildung beobachten"
+      - operator: ">"
+        value: 0.50
+        action: "REVIEW"
+        label: "Ueber $0.50 — Hype-Phase pruefen"
+    crypto_triggers:
+      - metric: "volume_market_cap_ratio"
+        operator: ">"
+        value: 0.20
+        action: "REVIEW"
+        label: "Extrem hohes Volumen — Meme-Pump pruefen"
+      - metric: "distance_from_ath_pct"
+        operator: ">"
+        value: 70
+        action: "REVIEW"
+        label: "Ueber 70% unter ATH — typisch fuer Memecoins"
+
+  XRP-USD:
+    name: "XRP"
+    status: "WATCH"
+    added: "2026-02-09"
+    category: "Infrastructure"
+    price_triggers:
+      - operator: "<"
+        value: 0.50
+        action: "BUY"
+        label: "Kaufzone — regulatorische Klarheit eingepreist"
+      - operator: ">"
+        value: 3.00
+        action: "REVIEW"
+        label: "ATH-Bereich — Ueberbewertung pruefen"
+    crypto_triggers:
+      - metric: "volume_market_cap_ratio"
+        operator: ">"
+        value: 0.10
+        action: "REVIEW"
+        label: "Hohes Volumen — News-Event pruefen"
+      - metric: "distance_from_ath_pct"
+        operator: ">"
+        value: 60
+        action: "BUY"
+        label: "Ueber 60% unter ATH — Value-Zone"

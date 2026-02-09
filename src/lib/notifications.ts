@@ -1,6 +1,6 @@
 import { writeFileSync, mkdirSync } from "fs";
 import { resolve } from "path";
-import type { Alert } from "./trigger-evaluator.js";
+import type { Alert } from "./trigger-utils.js";
 
 export interface MonitorResult {
   ticker: string;
@@ -31,7 +31,7 @@ function statusIcon(fired: boolean): string {
 
 export function notifyConsole(results: MonitorResult[]): void {
   const now = new Date().toISOString().slice(0, 19).replace("T", " ");
-  console.log(`\n${BOLD}=== Stock Monitor Report ===${RESET}`);
+  console.log(`\n${BOLD}=== Monitor Report ===${RESET}`);
   console.log(`${DIM}${now}${RESET}\n`);
 
   let totalFired = 0;
@@ -65,14 +65,40 @@ export function notifyConsole(results: MonitorResult[]): void {
 }
 
 function formatValue(metric: string, value: number): string {
+  // Stock: margins, growth, yield (0.xx -> xx%)
   if (metric.includes("margin") || metric.includes("growth") || metric.includes("yield")) {
     return `${(value * 100).toFixed(2)}%`;
   }
+  // Stock: large monetary values
   if (metric.includes("net_debt") || metric.includes("fcf")) {
     if (Math.abs(value) >= 1e9) return `$${(value / 1e9).toFixed(2)}B`;
     if (Math.abs(value) >= 1e6) return `$${(value / 1e6).toFixed(2)}M`;
     return `$${value.toFixed(0)}`;
   }
+  // Crypto: dominance and distance percentages (already in %)
+  if (metric.includes("dominance") || metric.includes("distance_from_ath") || metric.includes("distance_from_atl")) {
+    return `${value.toFixed(2)}%`;
+  }
+  // Crypto: supply ratio (0.xx -> xx%)
+  if (metric.includes("supply_ratio")) {
+    return `${(value * 100).toFixed(2)}%`;
+  }
+  // Crypto: volume/market_cap ratio
+  if (metric.includes("volume_market_cap_ratio")) {
+    return `${(value * 100).toFixed(4)}%`;
+  }
+  // Crypto: market cap
+  if (metric === "market_cap") {
+    if (Math.abs(value) >= 1e12) return `$${(value / 1e12).toFixed(2)}T`;
+    if (Math.abs(value) >= 1e9) return `$${(value / 1e9).toFixed(2)}B`;
+    if (Math.abs(value) >= 1e6) return `$${(value / 1e6).toFixed(2)}M`;
+    return `$${value.toFixed(0)}`;
+  }
+  // Crypto: sentiment
+  if (metric.includes("sentiment")) {
+    return value.toFixed(3);
+  }
+  // Price-related
   if (metric.includes("price")) return `$${value.toFixed(2)}`;
   if (Number.isInteger(value)) return String(value);
   return value.toFixed(4);
@@ -86,7 +112,7 @@ export function notifyMarkdown(results: MonitorResult[]): string {
   mkdirSync(outputDir, { recursive: true });
 
   const lines: string[] = [];
-  lines.push(`# Stock Monitor Report — ${date}`);
+  lines.push(`# Monitor Report — ${date}`);
   lines.push("");
   lines.push(`> Automatisch generiert am ${new Date().toISOString().slice(0, 19).replace("T", " ")} UTC`);
   lines.push("");
@@ -148,7 +174,7 @@ export async function notifyTelegram(results: MonitorResult[]): Promise<void> {
   );
   if (firedAlerts.length === 0) return;
 
-  const lines = ["📊 *Stock Monitor Alert*", ""];
+  const lines = ["📊 *Monitor Alert*", ""];
   for (const alert of firedAlerts) {
     const icon = alert.severity === "critical" ? "🔴" : alert.severity === "warning" ? "🟡" : "ℹ️";
     lines.push(`${icon} *${alert.ticker}* — ${alert.label}`);
@@ -206,8 +232,8 @@ export async function notifyEmail(results: MonitorResult[]): Promise<void> {
     await transporter.sendMail({
       from: user,
       to,
-      subject: `Stock Monitor: ${firedAlerts.length} Alert(s) — ${date}`,
-      text: `Stock Monitor Alert Report\n${"=".repeat(40)}\n\n${lines.join("\n")}\n`,
+      subject: `Monitor: ${firedAlerts.length} Alert(s) — ${date}`,
+      text: `Monitor Alert Report\n${"=".repeat(40)}\n\n${lines.join("\n")}\n`,
     });
 
     console.log("📧 Email-Benachrichtigung gesendet.");

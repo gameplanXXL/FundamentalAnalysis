@@ -59,14 +59,61 @@ export const stockConfigSchema = z.object({
   sentiment_triggers: z.array(sentimentTriggerSchema).optional().default([]),
 });
 
+// --- Crypto Schemas ---
+
+const cryptoMetricEnum = z.enum([
+  "market_cap",
+  "market_cap_dominance",
+  "volume_24h",
+  "volume_market_cap_ratio",
+  "circulating_supply_ratio",
+  "distance_from_ath_pct",
+  "distance_from_atl_pct",
+  "news_sentiment_avg",
+]);
+
+export const cryptoTriggerSchema = z.object({
+  metric: cryptoMetricEnum,
+  operator: operatorEnum,
+  value: z.number(),
+  action: actionEnum,
+  label: z.string(),
+});
+
+const cryptoCategoryEnum = z.enum([
+  "L1",
+  "L2",
+  "DeFi",
+  "Stablecoin",
+  "Meme",
+  "Infrastructure",
+  "Gaming",
+  "AI",
+]);
+
+export const cryptoConfigSchema = z.object({
+  name: z.string(),
+  status: z.enum(["BUY", "HOLD", "SELL", "WATCH"]),
+  added: z.string().optional().default("2026-02-09"),
+  category: cryptoCategoryEnum,
+  price_triggers: z.array(priceTriggerSchema).optional().default([]),
+  crypto_triggers: z.array(cryptoTriggerSchema).optional().default([]),
+});
+
+// --- Watchlist Schema ---
+
 export const watchlistSchema = z.object({
   version: z.number(),
   defaults: z.object({
     exchange: z.string().default("US"),
     check_interval: z.string().default("daily"),
+    crypto_exchange: z.string().default("CC"),
   }),
   stocks: z.record(z.string(), stockConfigSchema),
+  cryptos: z.record(z.string(), cryptoConfigSchema).optional().default({}),
 });
+
+// --- Type Exports ---
 
 export type Operator = z.infer<typeof operatorEnum>;
 export type Action = z.infer<typeof actionEnum>;
@@ -76,4 +123,8 @@ export type PriceTrigger = z.infer<typeof priceTriggerSchema>;
 export type FundamentalTrigger = z.infer<typeof fundamentalTriggerSchema>;
 export type SentimentTrigger = z.infer<typeof sentimentTriggerSchema>;
 export type StockConfig = z.infer<typeof stockConfigSchema>;
+export type CryptoMetric = z.infer<typeof cryptoMetricEnum>;
+export type CryptoTrigger = z.infer<typeof cryptoTriggerSchema>;
+export type CryptoCategory = z.infer<typeof cryptoCategoryEnum>;
+export type CryptoConfig = z.infer<typeof cryptoConfigSchema>;
 export type Watchlist = z.infer<typeof watchlistSchema>;

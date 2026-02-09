@@ -1,37 +1,11 @@
 import type { StockData } from "./data-fetcher.js";
 import type {
-  Operator,
   PriceTrigger,
   FundamentalTrigger,
   SentimentTrigger,
 } from "./watchlist-schema.js";
-
-export interface Alert {
-  ticker: string;
-  metric: string;
-  label: string;
-  action: string;
-  currentValue: number;
-  threshold: number;
-  fired: boolean;
-  severity: "critical" | "warning" | "info";
-}
-
-function compare(actual: number, operator: Operator, threshold: number): boolean {
-  switch (operator) {
-    case "<": return actual < threshold;
-    case ">": return actual > threshold;
-    case "<=": return actual <= threshold;
-    case ">=": return actual >= threshold;
-    case "==": return actual === threshold;
-  }
-}
-
-function severityForAction(action: string): "critical" | "warning" | "info" {
-  if (action === "SELL") return "critical";
-  if (action === "BUY" || action === "BUY_MORE") return "warning";
-  return "info";
-}
+import { compare, severityForAction, type Alert } from "./trigger-utils.js";
+export type { Alert } from "./trigger-utils.js";
 
 function getQuarterlyEntries(data: Record<string, Record<string, unknown>> | undefined): Record<string, unknown>[] {
   if (!data) return [];
