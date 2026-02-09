@@ -43,7 +43,16 @@ export const fundamentalTriggerSchema = z.object({
 });
 
 export const sentimentTriggerSchema = z.object({
-  metric: z.enum(["insider_net_sells", "insider_net_buys", "congress_buys"]),
+  metric: z.enum([
+    "insider_net_sells",
+    "insider_net_buys",
+    "congress_buys",
+    "news_sentiment_avg",
+    "analyst_consensus_rating",
+    "analyst_target_vs_price_pct",
+    "fear_greed_index",
+    "vix_level",
+  ]),
   operator: operatorEnum,
   value: z.number(),
   action: actionEnum,
@@ -106,6 +115,16 @@ export const cryptoConfigSchema = z.object({
   crypto_triggers: z.array(cryptoTriggerSchema).optional().default([]),
 });
 
+// --- Market Trigger Schema ---
+
+export const marketTriggerSchema = z.object({
+  metric: z.enum(["fear_greed_index", "vix_level"]),
+  operator: operatorEnum,
+  value: z.number(),
+  action: actionEnum,
+  label: z.string(),
+});
+
 // --- Watchlist Schema ---
 
 export const watchlistSchema = z.object({
@@ -117,6 +136,7 @@ export const watchlistSchema = z.object({
   }),
   stocks: z.record(z.string(), stockConfigSchema),
   cryptos: z.record(z.string(), cryptoConfigSchema).optional().default({}),
+  market_triggers: z.array(marketTriggerSchema).optional().default([]),
 });
 
 // --- Type Exports ---
@@ -133,4 +153,5 @@ export type CryptoMetric = z.infer<typeof cryptoMetricEnum>;
 export type CryptoTrigger = z.infer<typeof cryptoTriggerSchema>;
 export type CryptoCategory = z.infer<typeof cryptoCategoryEnum>;
 export type CryptoConfig = z.infer<typeof cryptoConfigSchema>;
+export type MarketTrigger = z.infer<typeof marketTriggerSchema>;
 export type Watchlist = z.infer<typeof watchlistSchema>;

@@ -141,6 +141,27 @@ competitive_map:
         label: "Neue Chip-Architektur — Disruptionsrisiko"
 
 # ============================================================
+# MARKET-LEVEL TRIGGERS — Fear & Greed, VIX
+# ============================================================
+
+market_triggers:
+  - metric: "fear_greed_index"
+    operator: "<"
+    value: 25
+    action: "BUY"
+    label: "Extreme Fear — Kaufgelegenheiten suchen"
+  - metric: "fear_greed_index"
+    operator: ">"
+    value: 80
+    action: "REVIEW"
+    label: "Extreme Greed — Ueberhitzung pruefen"
+  - metric: "vix_level"
+    operator: ">"
+    value: 30
+    action: "REVIEW"
+    label: "VIX ueber 30 — hohe Volatilitaet"
+
+# ============================================================
 # STOCKS — Einzelwerte mit allen Trigger-Typen
 # ============================================================
 
@@ -198,6 +219,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
   AMZN:
     name: "Amazon.com, Inc."
@@ -253,6 +294,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
   GOOGL:
     name: "Alphabet Inc."
@@ -307,6 +368,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
   NVDA:
     name: "NVIDIA Corporation"
@@ -365,6 +446,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
   ORCL:
     name: "Oracle Corporation"
@@ -422,6 +523,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
   META:
     name: "Meta Platforms, Inc."
@@ -483,6 +604,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
   AVGO:
     name: "Broadcom Inc."
@@ -543,6 +684,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
   AAPL:
     name: "Apple Inc."
@@ -595,6 +756,26 @@ stocks:
         value: 3
         action: "REVIEW"
         label: "Mehrere Kongress-Mitglieder kaufen"
+      - metric: "news_sentiment_avg"
+        operator: "<"
+        value: -0.2
+        action: "REVIEW"
+        label: "Negative Nachrichtenstimmung"
+      - metric: "analyst_consensus_rating"
+        operator: "<"
+        value: 3.0
+        action: "SELL"
+        label: "Analysten-Konsens unter 3.0 — Verkaufszone"
+      - metric: "analyst_target_vs_price_pct"
+        operator: ">"
+        value: 30
+        action: "BUY"
+        label: "Kurs >30% unter Analysten-Kursziel"
+      - metric: "analyst_target_vs_price_pct"
+        operator: "<"
+        value: -15
+        action: "REVIEW"
+        label: "Kurs >15% ueber Analysten-Kursziel"
 
 # ============================================================
 # CRYPTOS — Crypto-Assets mit Preis- und Crypto-Triggern

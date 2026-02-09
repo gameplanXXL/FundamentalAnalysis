@@ -94,7 +94,24 @@ function formatValue(metric: string, value: number): string {
     if (Math.abs(value) >= 1e6) return `$${(value / 1e6).toFixed(2)}M`;
     return `$${value.toFixed(0)}`;
   }
-  // Crypto: sentiment
+  // Analyst consensus rating (1-5 scale)
+  if (metric === "analyst_consensus_rating") {
+    return `${value.toFixed(1)}/5`;
+  }
+  // Analyst target vs price percentage (with sign)
+  if (metric === "analyst_target_vs_price_pct") {
+    const sign = value >= 0 ? "+" : "";
+    return `${sign}${value.toFixed(1)}%`;
+  }
+  // Fear & Greed Index (0-100)
+  if (metric === "fear_greed_index") {
+    return `${Math.round(value)}/100`;
+  }
+  // VIX level
+  if (metric === "vix_level") {
+    return value.toFixed(2);
+  }
+  // Crypto + Stock: sentiment
   if (metric.includes("sentiment")) {
     return value.toFixed(3);
   }

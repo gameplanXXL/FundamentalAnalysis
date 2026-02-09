@@ -5,10 +5,12 @@ config({ path: resolve(process.cwd(), ".env") });
 
 import { loadWatchlist } from "./lib/watchlist-loader.js";
 import { fetchStockData } from "./lib/data-fetcher.js";
-import { evaluateTriggers } from "./lib/trigger-evaluator.js";
+import { evaluateTriggers, evaluateMarketTriggers, type MarketContext } from "./lib/trigger-evaluator.js";
 import { fetchCryptoData } from "./lib/crypto-data-fetcher.js";
 import { evaluateCryptoTriggers } from "./lib/crypto-trigger-evaluator.js";
 import { notify, type MonitorResult } from "./lib/notifications.js";
+import { fetchFearGreedIndex } from "./lib/fear-greed-client.js";
+import { eodhd } from "./lib/eodhd-client.js";
 
 async function main(): Promise<void> {
   console.log("Lade Watchlist...");
@@ -18,6 +20,41 @@ async function main(): Promise<void> {
 
   const results: MonitorResult[] = [];
   let totalFired = 0;
+
+  // --- Market Context (Fear & Greed + VIX) ---
+  const marketContext: MarketContext = {};
+  try {
+    console.log("Lade Markt-Kontext (Fear & Greed, VIX)...");
+    const [fearGreed, vixPrice] = await Promise.all([
+      fetchFearGreedIndex(),
+      eodhd.getRealTimePrice("VIX.INDX").catch(() => null),
+    ]);
+    if (fearGreed) {
+      marketContext.fearGreedIndex = fearGreed.value;
+      marketContext.fearGreedClassification = fearGreed.classification;
+      console.log(`  Fear & Greed: ${fearGreed.value}/100 (${fearGreed.classification})`);
+    }
+    if (vixPrice) {
+      marketContext.vixLevel = vixPrice.close;
+      console.log(`  VIX: ${vixPrice.close.toFixed(2)}`);
+    }
+  } catch (err) {
+    console.error("Markt-Kontext konnte nicht geladen werden:", err);
+  }
+
+  // --- Market-Level Triggers ---
+  const marketTriggers = watchlist.market_triggers ?? [];
+  if (marketTriggers.length > 0) {
+    const marketAlerts = evaluateMarketTriggers(marketTriggers, marketContext);
+    const firedCount = marketAlerts.filter((a) => a.fired).length;
+    totalFired += firedCount;
+    results.push({
+      ticker: "MARKET",
+      name: "Markt-Indikatoren",
+      status: "WATCH",
+      alerts: marketAlerts,
+    });
+  }
 
   // --- Stocks ---
   const tickers = Object.keys(watchlist.stocks);
@@ -29,7 +66,7 @@ async function main(): Promise<void> {
 
     try {
       const data = await fetchStockData(ticker, stockConfig, exchange);
-      const alerts = evaluateTriggers(data);
+      const alerts = evaluateTriggers(data, marketContext);
       const firedCount = alerts.filter((a) => a.fired).length;
       totalFired += firedCount;
 

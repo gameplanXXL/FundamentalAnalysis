@@ -3,6 +3,7 @@ import type {
   PriceTrigger,
   FundamentalTrigger,
   SentimentTrigger,
+  MarketTrigger,
 } from "./watchlist-schema.js";
 import { compare, severityForAction, type Alert } from "./trigger-utils.js";
 export type { Alert } from "./trigger-utils.js";
@@ -219,7 +220,13 @@ function countTransactions(transactions: unknown[]): TransactionCounts {
   return counts;
 }
 
-function evaluateSentimentTriggers(data: StockData, triggers: SentimentTrigger[]): Alert[] {
+export interface MarketContext {
+  fearGreedIndex?: number;
+  fearGreedClassification?: string;
+  vixLevel?: number;
+}
+
+function evaluateSentimentTriggers(data: StockData, triggers: SentimentTrigger[], marketContext?: MarketContext): Alert[] {
   const alerts: Alert[] = [];
   const transactions = data.insiderTransactions ?? [];
   const counts = countTransactions(transactions);
@@ -271,16 +278,134 @@ function evaluateSentimentTriggers(data: StockData, triggers: SentimentTrigger[]
         severity: severityForAction(trigger.action),
       });
     }
+
+    if (trigger.metric === "news_sentiment_avg") {
+      const news = data.recentNews;
+      if (!news || news.length === 0) continue;
+      const totalPolarity = news.reduce((sum, article) => sum + (article.sentiment?.polarity ?? 0), 0);
+      const avgSentiment = totalPolarity / news.length;
+      const fired = compare(avgSentiment, trigger.operator, trigger.value);
+
+      alerts.push({
+        ticker: data.ticker,
+        metric: "news_sentiment_avg",
+        label: trigger.label,
+        action: trigger.action,
+        currentValue: avgSentiment,
+        threshold: trigger.value,
+        fired,
+        severity: severityForAction(trigger.action),
+      });
+    }
+
+    if (trigger.metric === "analyst_consensus_rating") {
+      if (!data.analystRatings) continue;
+      const rating = data.analystRatings.Rating;
+      const fired = compare(rating, trigger.operator, trigger.value);
+
+      alerts.push({
+        ticker: data.ticker,
+        metric: "analyst_consensus_rating",
+        label: trigger.label,
+        action: trigger.action,
+        currentValue: rating,
+        threshold: trigger.value,
+        fired,
+        severity: severityForAction(trigger.action),
+      });
+    }
+
+    if (trigger.metric === "analyst_target_vs_price_pct") {
+      if (!data.analystRatings || !data.realTimePrice?.close) continue;
+      const target = data.analystRatings.TargetPrice;
+      const price = data.realTimePrice.close;
+      if (price === 0) continue;
+      const pctDiff = ((target - price) / price) * 100;
+      const fired = compare(pctDiff, trigger.operator, trigger.value);
+
+      alerts.push({
+        ticker: data.ticker,
+        metric: "analyst_target_vs_price_pct",
+        label: trigger.label,
+        action: trigger.action,
+        currentValue: pctDiff,
+        threshold: trigger.value,
+        fired,
+        severity: severityForAction(trigger.action),
+      });
+    }
+
+    if (trigger.metric === "fear_greed_index") {
+      if (marketContext?.fearGreedIndex == null) continue;
+      const fired = compare(marketContext.fearGreedIndex, trigger.operator, trigger.value);
+
+      alerts.push({
+        ticker: data.ticker,
+        metric: "fear_greed_index",
+        label: trigger.label,
+        action: trigger.action,
+        currentValue: marketContext.fearGreedIndex,
+        threshold: trigger.value,
+        fired,
+        severity: severityForAction(trigger.action),
+      });
+    }
+
+    if (trigger.metric === "vix_level") {
+      if (marketContext?.vixLevel == null) continue;
+      const fired = compare(marketContext.vixLevel, trigger.operator, trigger.value);
+
+      alerts.push({
+        ticker: data.ticker,
+        metric: "vix_level",
+        label: trigger.label,
+        action: trigger.action,
+        currentValue: marketContext.vixLevel,
+        threshold: trigger.value,
+        fired,
+        severity: severityForAction(trigger.action),
+      });
+    }
   }
 
   return alerts;
 }
 
-export function evaluateTriggers(data: StockData): Alert[] {
+export function evaluateMarketTriggers(triggers: MarketTrigger[], marketContext: MarketContext): Alert[] {
+  const alerts: Alert[] = [];
+
+  for (const trigger of triggers) {
+    let value: number | undefined;
+
+    if (trigger.metric === "fear_greed_index") {
+      value = marketContext.fearGreedIndex;
+    } else if (trigger.metric === "vix_level") {
+      value = marketContext.vixLevel;
+    }
+
+    if (value == null) continue;
+    const fired = compare(value, trigger.operator, trigger.value);
+
+    alerts.push({
+      ticker: "MARKET",
+      metric: trigger.metric,
+      label: trigger.label,
+      action: trigger.action,
+      currentValue: value,
+      threshold: trigger.value,
+      fired,
+      severity: severityForAction(trigger.action),
+    });
+  }
+
+  return alerts;
+}
+
+export function evaluateTriggers(data: StockData, marketContext?: MarketContext): Alert[] {
   const config = data.config;
   return [
     ...evaluatePriceTriggers(data, config.price_triggers),
     ...evaluateFundamentalTriggers(data, config.fundamental_triggers),
-    ...evaluateSentimentTriggers(data, config.sentiment_triggers),
+    ...evaluateSentimentTriggers(data, config.sentiment_triggers, marketContext),
   ];
 }
