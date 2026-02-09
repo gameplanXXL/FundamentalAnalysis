@@ -2,8 +2,8 @@
 # Re-generate: npx tsx src/report-index.ts
 # Do not edit manually.
 
-generated: 2026-02-09T11:16:49.807Z
-report_count: 23
+generated: 2026-02-09T11:23:06.477Z
+report_count: 24
 stocks:
   AAPL:
     - type: decision
@@ -50,6 +50,11 @@ stocks:
       recommendation: WATCH
       summary: Meta Platforms ist ein qualitativ herausragendes Unternehmen mit 82% Bruttomarge, 41% operativer Marge und 24%
         Umsatzwachstum bei $201 Mrd. Revenue...
+    - type: morningstar
+      date: 2026-02-09
+      path: stocks/morningstar/morningstar-META-2026-02-09.md
+      summary: Der aktuelle Kurs von **661.46 USD** liegt **22% unter dem Fair Value Estimate** von 850.00 USD — ein
+        attraktiver Discount fuer ein Mega-Cap-Untern...
   MRVL:
     - type: decision
       date: 2026-02-09
