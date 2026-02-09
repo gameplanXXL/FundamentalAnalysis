@@ -2,8 +2,8 @@
 # Re-generate: npx tsx src/report-index.ts
 # Do not edit manually.
 
-generated: 2026-02-09T11:39:02.938Z
-report_count: 27
+generated: 2026-02-09T11:57:52.706Z
+report_count: 33
 stocks:
   AAPL:
     - type: decision
@@ -72,7 +72,18 @@ stocks:
       recommendation: BUY
       summary: Marvell ist der Underdog im Custom-ASIC-Rennen — kleiner als Broadcom (5% vs. 70% Marktanteil), aber mit einem
         klaren Wachstumsplan auf 20% bis 202...
+    - type: morningstar
+      date: 2026-02-09
+      path: stocks/morningstar/morningstar-MRVL-2026-02-09.md
+      summary: Der aktuelle Kurs von **80.28 USD** liegt **33% unter dem Fair Value Estimate** von 120.00 USD — ein
+        erheblicher Discount. Marvell notiert nur knap...
   MSFT:
+    - type: decision
+      date: 2026-02-09
+      path: stocks/decisions/decision-MSFT-2026-02-09.md
+      recommendation: BUY
+      summary: Microsoft ist ein Ausnahme-Unternehmen mit 47% Operating Margin, 77 Mrd. USD Free Cashflow und einer
+        Festungs-Bilanz (+49 Mrd. USD Netto-Cash). Bei...
     - type: morningstar
       date: 2026-02-09
       path: stocks/morningstar/morningstar-MSFT-2026-02-09.md
@@ -97,6 +108,12 @@ stocks:
       summary: Der aktuelle Kurs von **185.41 USD** liegt **23% unter dem Fair Value Estimate** von 240.00 USD — ein
         deutlicher Discount. NVIDIA notiert zwischen ...
   ORCL:
+    - type: decision
+      date: 2026-02-09
+      path: stocks/decisions/decision-ORCL-2026-02-09.md
+      recommendation: WATCH
+      summary: Oracle ist ein operativ starkes Unternehmen (14% Umsatzwachstum, 32% Operating Margin) in einer aggressiven
+        Cloud/AI-Transformation, dessen Aktie 5...
     - type: morningstar
       date: 2026-02-09
       path: stocks/morningstar/morningstar-ORCL-2026-02-09.md
@@ -115,6 +132,11 @@ stocks:
       recommendation: SELL
       summary: "Palantir ist operativ beeindruckend: 41% Op. Marge, 84% Bruttomarge, +70% Revenue-Wachstum, schuldenfreie
         Bilanz mit Current Ratio 7,1. Das Problem..."
+    - type: morningstar
+      date: 2026-02-09
+      path: stocks/morningstar/morningstar-PLTR-2026-02-09.md
+      summary: Der aktuelle Kurs von **135.90 USD** liegt **11% unter dem Fair Value Estimate** von 153.00 USD — im Bereich,
+        den MorningStar als "fair bewertet" e...
   TSLA:
     - type: decision
       date: 2026-02-09
@@ -122,6 +144,11 @@ stocks:
       recommendation: SELL
       summary: "Tesla ist ein Unternehmen im Bewertungs-Vakuum: 4,7% Op. Marge, -3,1% Revenue-Rückgang im letzten Quartal,
         -60,6% Earnings-Rückgang YoY — und das b..."
+    - type: morningstar
+      date: 2026-02-09
+      path: stocks/morningstar/morningstar-TSLA-2026-02-09.md
+      summary: Der aktuelle Kurs von **411.11 USD** liegt **3% ueber dem Fair Value Estimate** von 400.00 USD — Tesla notiert
+        damit leicht ueber dem fairen Wert. ...
   _comparisons:
     - type: comparison
       date: 2026-02-09
@@ -134,6 +161,25 @@ stocks:
         - AMZN
         - ORCL
         - PLTR
+        - TSLA
+    - type: comparison
+      date: 2026-02-09
+      path: stocks/comparisons/compare-watchlist-11-2026-02-09.md
+      summary: "Watchlist-Gesamtvergleich: Mag 7 + 4 Extras"
+      tickers:
+        - NVDA
+        - BUY
+        - MSFT
+        - AVGO
+        - MRVL
+        - AAPL
+        - WATCH
+        - AMZN
+        - GOOGL
+        - META
+        - ORCL
+        - PLTR
+        - SELL
         - TSLA
     - type: comparison
       date: 2026-02-08
