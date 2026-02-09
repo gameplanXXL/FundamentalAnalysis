@@ -39,6 +39,16 @@ requires_mcp: playwright
 
 ---
 
+## MARKDOWN-FORMATIERUNG IM REPORT
+
+**KRITISCH:** Verwende NIEMALS das `$`-Zeichen (Dollarzeichen) im Fliesstext oder in Bold-Markierungen. Viele Markdown-Renderer (GitHub, Obsidian, etc.) interpretieren `$...$` als LaTeX-Math-Delimiter, was Bold/Italic-Formatierung zerstoert.
+
+- **Falsch:** `Der Kurs von **$142.82** liegt unter dem Fair Value von $277.00`
+- **Richtig:** `Der Kurs von **142.82 USD** liegt unter dem Fair Value von 277.00 USD`
+- **In Tabellenzellen** sind Dollarzeichen erlaubt — dort tritt das Problem nicht auf.
+
+---
+
 ## WORKFLOW SEQUENCE
 
 ### Step 1: Ticker-Eingabe und Validierung
@@ -358,13 +368,13 @@ Erstelle den konsolidierten MorningStar-Research-Report und speichere ihn in `{o
 | Rating | Wert |
 |--------|------|
 | Star Rating | {1-5 Sterne} |
-| Fair Value Estimate | ${fair_value} (Stand: {fv_date}) |
+| Fair Value Estimate | {fair_value} USD (Stand: {fv_date}) |
 | Uncertainty Rating | {uncertainty} |
 | Economic Moat | {moat} |
 | Capital Allocation | {cap_alloc} |
-| 1-Star Price (ueberbewertet) | ${1_star} |
-| 5-Star Price (unterbewertet) | ${5_star} |
-| Aktueller Kurs | ${current_price} |
+| 1-Star Price (ueberbewertet) | {1_star} USD |
+| 5-Star Price (unterbewertet) | {5_star} USD |
+| Aktueller Kurs | {current_price} USD |
 
 ### Bewertungs-Einschaetzung
 
