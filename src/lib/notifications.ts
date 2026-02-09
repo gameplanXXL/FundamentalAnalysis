@@ -98,6 +98,25 @@ function formatValue(metric: string, value: number): string {
   if (metric.includes("sentiment")) {
     return value.toFixed(3);
   }
+  // CoinGecko: developer metrics (integer)
+  if (metric === "developer_commit_count_4w" || metric === "developer_stars") {
+    return String(Math.round(value));
+  }
+  // CoinGecko: reddit subscribers (K/M suffix)
+  if (metric === "community_reddit_subscribers") {
+    if (value >= 1e6) return `${(value / 1e6).toFixed(1)}M`;
+    if (value >= 1e3) return `${(value / 1e3).toFixed(1)}K`;
+    return String(Math.round(value));
+  }
+  // CoinGecko: FDV/MCap ratio
+  if (metric === "fdv_mcap_ratio") {
+    return value.toFixed(2);
+  }
+  // CoinGecko: price change percentages (with sign)
+  if (metric === "price_change_pct_7d" || metric === "price_change_pct_30d") {
+    const sign = value >= 0 ? "+" : "";
+    return `${sign}${value.toFixed(2)}%`;
+  }
   // Price-related
   if (metric.includes("price")) return `$${value.toFixed(2)}`;
   if (Number.isInteger(value)) return String(value);

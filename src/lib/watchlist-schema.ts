@@ -70,6 +70,12 @@ const cryptoMetricEnum = z.enum([
   "distance_from_ath_pct",
   "distance_from_atl_pct",
   "news_sentiment_avg",
+  "developer_commit_count_4w",
+  "developer_stars",
+  "community_reddit_subscribers",
+  "fdv_mcap_ratio",
+  "price_change_pct_7d",
+  "price_change_pct_30d",
 ]);
 
 export const cryptoTriggerSchema = z.object({

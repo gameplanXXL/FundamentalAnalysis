@@ -818,6 +818,11 @@ cryptos:
         value: 0.95
         action: "REVIEW"
         label: "Ueber 95% der Max-Supply im Umlauf"
+      - metric: "developer_commit_count_4w"
+        operator: "<"
+        value: 10
+        action: "REVIEW"
+        label: "Weniger als 10 Commits in 4 Wochen — Entwicklung stagniert?"
 
   ETH-USD:
     name: "Ethereum"
@@ -844,6 +849,16 @@ cryptos:
         value: 50
         action: "BUY"
         label: "Ueber 50% unter ATH — Deep-Value-Zone"
+      - metric: "developer_commit_count_4w"
+        operator: "<"
+        value: 20
+        action: "REVIEW"
+        label: "Weniger als 20 Commits in 4 Wochen — Entwicklung verlangsamt?"
+      - metric: "fdv_mcap_ratio"
+        operator: ">"
+        value: 1.2
+        action: "REVIEW"
+        label: "FDV/MCap ueber 1.2 — Token-Inflation pruefen"
 
   SOL-USD:
     name: "Solana"

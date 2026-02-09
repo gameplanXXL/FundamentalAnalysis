@@ -70,6 +70,28 @@ function computeCryptoMetric(data: CryptoData, metric: string): number | null {
       return totalPolarity / news.length;
     }
 
+    case "developer_commit_count_4w":
+      return data.coingecko?.developer_data?.commit_count_4_weeks ?? null;
+
+    case "developer_stars":
+      return data.coingecko?.developer_data?.stars ?? null;
+
+    case "community_reddit_subscribers":
+      return data.coingecko?.community_data?.reddit_subscribers ?? null;
+
+    case "fdv_mcap_ratio": {
+      const fdv = data.coingecko?.market_data?.fully_diluted_valuation;
+      const mcapCg = data.coingecko?.market_data?.market_cap;
+      if (fdv == null || mcapCg == null || mcapCg === 0) return null;
+      return fdv / mcapCg;
+    }
+
+    case "price_change_pct_7d":
+      return data.coingecko?.market_data?.price_change_percentage_7d ?? null;
+
+    case "price_change_pct_30d":
+      return data.coingecko?.market_data?.price_change_percentage_30d ?? null;
+
     default:
       return null;
   }

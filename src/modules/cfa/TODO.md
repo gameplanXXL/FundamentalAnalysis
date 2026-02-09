@@ -37,12 +37,14 @@ Development roadmap for cfa module.
 
 ---
 
-## Phase 3: CoinGecko-Integration (PLANNED)
+## Phase 3: CoinGecko-Integration (DONE)
 
-- [ ] `src/lib/coingecko-client.ts` — API-Client (Free Tier: 10k Calls/Monat)
-- [ ] `src/tools/crypto.ts` — Neue MCP-Tools: `get-crypto-market`, `get-crypto-detail`, `get-crypto-global`
-- [ ] Erweiterte Metriken: Community-Daten, Developer-Aktivitaet, Trending-Coins
-- [ ] CoinGecko API Key in .env als `COINGECKO_API_KEY` (bereits vorhanden)
+- [x] `src/lib/coingecko-client.ts` — API-Client (Free Tier: 10k Calls/Monat)
+- [x] `src/tools/crypto.ts` — Neue MCP-Tools: `get-crypto-market`, `get-crypto-detail`, `get-crypto-global`
+- [x] Erweiterte Metriken: Community-Daten, Developer-Aktivitaet, Trending-Coins
+- [x] CoinGecko API Key in .env als `COINGECKO_API_KEY` (bereits vorhanden)
+- [x] 6 neue Crypto-Metriken: developer_commit_count_4w, developer_stars, community_reddit_subscribers, fdv_mcap_ratio, price_change_pct_7d, price_change_pct_30d
+- [x] Graceful Degradation: Monitor laeuft auch ohne CoinGecko-Key
 
 ---
 

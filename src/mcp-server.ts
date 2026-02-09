@@ -6,6 +6,7 @@ import { getFundamentals, getFundamentalsSchema, getHighlights, getHighlightsSch
 import { getEodPrice, getEodPriceSchema, getRealTimePrice, getRealTimePriceSchema, getDividends, getDividendsSchema } from "./tools/price.js";
 import { getFinancialNews, getFinancialNewsSchema } from "./tools/news.js";
 import { searchStock, searchStockSchema, getInsiderTransactions, getInsiderTransactionsSchema } from "./tools/search.js";
+import { getCryptoMarket, getCryptoMarketSchema, getCryptoDetail, getCryptoDetailSchema, getCryptoGlobal, getCryptoGlobalSchema } from "./tools/crypto.js";
 
 const server = new McpServer({
   name: "eodhd",
@@ -110,6 +111,40 @@ server.registerTool(
   },
   async (args) => ({
     content: [{ type: "text" as const, text: await getPeers(getPeersSchema.parse(args)) }],
+  }),
+);
+
+// CoinGecko tools
+server.registerTool(
+  "get-crypto-market",
+  {
+    description: "Get market data for multiple cryptocurrencies (price, market cap, volume, 24h/7d/30d changes). Data from CoinGecko.",
+    inputSchema: getCryptoMarketSchema.shape,
+  },
+  async (args) => ({
+    content: [{ type: "text" as const, text: await getCryptoMarket(getCryptoMarketSchema.parse(args)) }],
+  }),
+);
+
+server.registerTool(
+  "get-crypto-detail",
+  {
+    description: "Get detailed crypto data including community stats (Reddit, Twitter), developer activity (GitHub commits, stars), and market data. Data from CoinGecko.",
+    inputSchema: getCryptoDetailSchema.shape,
+  },
+  async (args) => ({
+    content: [{ type: "text" as const, text: await getCryptoDetail(getCryptoDetailSchema.parse(args)) }],
+  }),
+);
+
+server.registerTool(
+  "get-crypto-global",
+  {
+    description: "Get global crypto market stats (total market cap, dominance, volume) and top-7 trending coins. Data from CoinGecko.",
+    inputSchema: getCryptoGlobalSchema.shape,
+  },
+  async (args) => ({
+    content: [{ type: "text" as const, text: await getCryptoGlobal() }],
   }),
 );
 
