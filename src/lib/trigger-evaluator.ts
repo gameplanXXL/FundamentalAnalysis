@@ -241,6 +241,22 @@ function evaluateSentimentTriggers(data: StockData, triggers: SentimentTrigger[]
       });
     }
 
+    if (trigger.metric === "insider_net_buys") {
+      const netBuys = counts.corporateBuys - counts.corporateSells;
+      const fired = compare(netBuys, trigger.operator, trigger.value);
+
+      alerts.push({
+        ticker: data.ticker,
+        metric: "insider_net_buys",
+        label: trigger.label,
+        action: trigger.action,
+        currentValue: netBuys,
+        threshold: trigger.value,
+        fired,
+        severity: severityForAction(trigger.action),
+      });
+    }
+
     if (trigger.metric === "congress_buys") {
       const fired = compare(counts.congressBuys, trigger.operator, trigger.value);
 

@@ -43,7 +43,7 @@ export const fundamentalTriggerSchema = z.object({
 });
 
 export const sentimentTriggerSchema = z.object({
-  metric: z.enum(["insider_net_sells", "congress_buys"]),
+  metric: z.enum(["insider_net_sells", "insider_net_buys", "congress_buys"]),
   operator: operatorEnum,
   value: z.number(),
   action: actionEnum,
