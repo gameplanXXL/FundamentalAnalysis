@@ -2,7 +2,7 @@
 name: stock-monitor
 description: Schwellenwerte der Watchlist-Aktien interaktiv pruefen
 installed_path: '{project-root}/_bmad/sfa/workflows/stock-monitor'
-outputFile: '{analysis_artifacts}/monitor-report-{date}.md'
+outputFile: '{analysis_artifacts}/monitor/monitor-report-{date}.md'
 ---
 
 # Stock Monitor

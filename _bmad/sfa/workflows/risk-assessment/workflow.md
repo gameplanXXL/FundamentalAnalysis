@@ -2,7 +2,7 @@
 name: risk-assessment
 description: Risikobewertung und Red-Flag-Erkennung
 installed_path: '{project-root}/_bmad/sfa/workflows/risk-assessment'
-outputFile: '{analysis_artifacts}/risk-{ticker}-{date}.md'
+outputFile: '{analysis_artifacts}/risk/risk-{ticker}-{date}.md'
 ---
 
 # Risk Assessment

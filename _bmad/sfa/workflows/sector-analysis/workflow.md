@@ -2,7 +2,7 @@
 name: sector-analysis
 description: Branchenanalyse — Top und Flop Unternehmen einer Branche
 installed_path: '{project-root}/_bmad/sfa/workflows/sector-analysis'
-outputFile: '{analysis_artifacts}/sector-{sector}-{date}.md'
+outputFile: '{analysis_artifacts}/sectors/sector-{sector}-{date}.md'
 ---
 
 # Sector Analysis

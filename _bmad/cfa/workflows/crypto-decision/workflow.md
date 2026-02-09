@@ -2,7 +2,7 @@
 name: crypto-decision
 description: BUY/HOLD/SELL Empfehlung fuer ein Crypto-Asset
 installed_path: '{project-root}/_bmad/cfa/workflows/crypto-decision'
-outputFile: '{analysis_artifacts}/decision-{ticker}-{date}.md'
+outputFile: '{analysis_artifacts}/decisions/decision-{ticker}-{date}.md'
 ---
 
 # Crypto Decision
@@ -10,6 +10,16 @@ outputFile: '{analysis_artifacts}/decision-{ticker}-{date}.md'
 **Goal:** Kombinierte BUY/HOLD/SELL-Empfehlung fuer ein Crypto-Asset — von Satoshi analysiert, von Cassandra risiko-geprueft.
 
 **Your Role:** Du fuehrst beide Perspektiven zusammen. Kommuniziere in `{communication_language}`.
+
+---
+
+## MARKDOWN-FORMATIERUNG IM REPORT
+
+**KRITISCH:** Verwende NIEMALS das `$`-Zeichen (Dollarzeichen) im Fliesstext oder in Bold-Markierungen. Viele Markdown-Renderer (GitHub, Obsidian, etc.) interpretieren `$...$` als LaTeX-Math-Delimiter, was Bold/Italic-Formatierung zerstoert.
+
+- **Falsch:** `Der Kurs von **$142.82** liegt unter dem Fair Value von $277.00`
+- **Richtig:** `Der Kurs von **142.82 USD** liegt unter dem Fair Value von 277.00 USD`
+- **In Tabellenzellen** sind Dollarzeichen erlaubt — dort tritt das Problem nicht auf.
 
 ---
 

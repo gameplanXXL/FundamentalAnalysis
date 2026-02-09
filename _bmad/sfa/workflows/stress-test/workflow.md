@@ -2,7 +2,7 @@
 name: stress-test
 description: Worst-Case-Szenario — Was passiert wenn alles schiefgeht?
 installed_path: '{project-root}/_bmad/sfa/workflows/stress-test'
-outputFile: '{analysis_artifacts}/stress-{ticker}-{date}.md'
+outputFile: '{analysis_artifacts}/stress-tests/stress-{ticker}-{date}.md'
 ---
 
 # Stress Test

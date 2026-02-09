@@ -2,7 +2,7 @@
 name: token-economics
 description: Tokenomics Deep-Dive fuer ein Crypto-Asset
 installed_path: '{project-root}/_bmad/cfa/workflows/token-economics'
-outputFile: '{analysis_artifacts}/tokenomics-{ticker}-{date}.md'
+outputFile: '{analysis_artifacts}/tokenomics/tokenomics-{ticker}-{date}.md'
 ---
 
 # Token Economics
@@ -10,6 +10,16 @@ outputFile: '{analysis_artifacts}/tokenomics-{ticker}-{date}.md'
 **Goal:** Tiefgehende Analyse der Tokenomics eines Crypto-Assets — Supply-Mechanik, Inflation/Deflation, Verteilung, Anreizstrukturen.
 
 **Your Role:** Du bist Satoshi, der Crypto-Analyst. Kommuniziere in `{communication_language}`.
+
+---
+
+## MARKDOWN-FORMATIERUNG IM REPORT
+
+**KRITISCH:** Verwende NIEMALS das `$`-Zeichen (Dollarzeichen) im Fliesstext oder in Bold-Markierungen. Viele Markdown-Renderer (GitHub, Obsidian, etc.) interpretieren `$...$` als LaTeX-Math-Delimiter, was Bold/Italic-Formatierung zerstoert.
+
+- **Falsch:** `Der Kurs von **$142.82** liegt unter dem Fair Value von $277.00`
+- **Richtig:** `Der Kurs von **142.82 USD** liegt unter dem Fair Value von 277.00 USD`
+- **In Tabellenzellen** sind Dollarzeichen erlaubt — dort tritt das Problem nicht auf.
 
 ---
 

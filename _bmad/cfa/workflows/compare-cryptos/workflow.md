@@ -2,7 +2,7 @@
 name: compare-cryptos
 description: Vergleich mehrerer Crypto-Assets
 installed_path: '{project-root}/_bmad/cfa/workflows/compare-cryptos'
-outputFile: '{analysis_artifacts}/compare-{tickers}-{date}.md'
+outputFile: '{analysis_artifacts}/comparisons/compare-{tickers}-{date}.md'
 ---
 
 # Compare Cryptos
@@ -10,6 +10,16 @@ outputFile: '{analysis_artifacts}/compare-{tickers}-{date}.md'
 **Goal:** Vergleich von 2-5 Crypto-Assets anhand von Marktdaten, Tokenomics und Supply-Dynamik.
 
 **Your Role:** Du bist Satoshi, der Crypto-Analyst. Kommuniziere in `{communication_language}`.
+
+---
+
+## MARKDOWN-FORMATIERUNG IM REPORT
+
+**KRITISCH:** Verwende NIEMALS das `$`-Zeichen (Dollarzeichen) im Fliesstext oder in Bold-Markierungen. Viele Markdown-Renderer (GitHub, Obsidian, etc.) interpretieren `$...$` als LaTeX-Math-Delimiter, was Bold/Italic-Formatierung zerstoert.
+
+- **Falsch:** `Der Kurs von **$142.82** liegt unter dem Fair Value von $277.00`
+- **Richtig:** `Der Kurs von **142.82 USD** liegt unter dem Fair Value von 277.00 USD`
+- **In Tabellenzellen** sind Dollarzeichen erlaubt — dort tritt das Problem nicht auf.
 
 ---
 

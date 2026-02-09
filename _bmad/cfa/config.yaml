@@ -10,5 +10,5 @@ output_folder: "{project-root}/_bmad-output"
 
 # CFA-Specific Configuration
 default_crypto_exchange: "CC"
-analysis_artifacts: "{project-root}/_bmad-output/crypto-analysis"
+analysis_artifacts: "{project-root}/_bmad-output/crypto"
 investor_style: "hodl"

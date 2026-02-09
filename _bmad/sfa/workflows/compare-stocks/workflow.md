@@ -2,7 +2,7 @@
 name: compare-stocks
 description: Vergleich mehrerer Unternehmen anhand von Fundamentaldaten
 installed_path: '{project-root}/_bmad/sfa/workflows/compare-stocks'
-outputFile: '{analysis_artifacts}/compare-{date}.md'
+outputFile: '{analysis_artifacts}/comparisons/compare-{date}.md'
 ---
 
 # Compare Stocks

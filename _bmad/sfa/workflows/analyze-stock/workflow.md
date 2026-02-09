@@ -2,7 +2,7 @@
 name: analyze-stock
 description: Vollständige Fundamentalanalyse eines Unternehmens
 installed_path: '{project-root}/_bmad/sfa/workflows/analyze-stock'
-outputFile: '{analysis_artifacts}/analyze-{ticker}-{date}.md'
+outputFile: '{analysis_artifacts}/analysis/analyze-{ticker}-{date}.md'
 ---
 
 # Analyze Stock

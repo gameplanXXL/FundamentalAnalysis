@@ -2,7 +2,7 @@
 name: investment-decision
 description: Kombinierte Analyse für Kaufentscheidung (Buy/Hold/Sell)
 installed_path: '{project-root}/_bmad/sfa/workflows/investment-decision'
-outputFile: '{analysis_artifacts}/decision-{ticker}-{date}.md'
+outputFile: '{analysis_artifacts}/decisions/decision-{ticker}-{date}.md'
 ---
 
 # Investment Decision

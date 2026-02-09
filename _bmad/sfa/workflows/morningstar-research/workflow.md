@@ -2,7 +2,7 @@
 name: morningstar-research
 description: MorningStar Research-Daten fuer ein Unternehmen sammeln (Playwright MCP)
 installed_path: '{project-root}/_bmad/sfa/workflows/morningstar-research'
-outputFile: '{analysis_artifacts}/morningstar-{ticker}-{date}.md'
+outputFile: '{analysis_artifacts}/morningstar/morningstar-{ticker}-{date}.md'
 requires_mcp: playwright
 ---
 

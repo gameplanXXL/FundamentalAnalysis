@@ -10,5 +10,5 @@ output_folder: "{project-root}/_bmad-output"
 
 # SFA-Specific Configuration
 default_exchange: "US"
-analysis_artifacts: "{project-root}/_bmad-output/stock-analysis"
+analysis_artifacts: "{project-root}/_bmad-output/stocks"
 investor_style: "value"
